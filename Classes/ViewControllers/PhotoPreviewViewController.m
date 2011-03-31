@@ -8,7 +8,7 @@
 
 #import "PhotoPreviewViewController.h"
 #import "EngineDude.h"
-
+#import "MainViewController.h"
 
 @implementation PhotoPreviewViewController
 @synthesize uiImage, uiImageView, captionField;
