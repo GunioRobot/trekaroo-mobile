@@ -11,11 +11,12 @@
 #import "MainViewController.h"
 
 @implementation PhotoPreviewViewController
-@synthesize uiImage, uiImageView, captionField;
+@synthesize uiImage, uiImageView, captionField, photoOptions;
 
-- (id)init:(UIImage*)inImage{
+- (id)init:(UIImage*)inImage options:(NSMutableDictionary *)options {
 	if ((self = [super initWithNibName:nil bundle:nil])) {
 		self.uiImage = inImage;
+		self.photoOptions = options;
 	}
 	return self;
 }
@@ -36,7 +37,7 @@
 }
 
 - (IBAction)sendPhotoAction:(id)sender {
-	 [[EngineDude engineDude] uploadImage:(UIImage *)uiImage withCaption:(NSString *)captionField.text];
+	[[EngineDude engineDude] uploadImage:(UIImage *)uiImage withCaption:(NSString *)captionField.text andOptions:photoOptions];
 }
 
 
@@ -84,6 +85,7 @@
 	[uiImage release];
 	[uiImageView release];
 	[captionField release];
+	[photoOptions release];
     [super dealloc];
 }
 

@@ -11,7 +11,7 @@
 #import "EngineDude.h"
 
 @implementation MainViewController
-@synthesize webView, backItem, forwardItem, customToolBar;
+@synthesize webView, backItem, forwardItem, customToolBar, photoPostOptions;
 
 - (void)updateButtons {
 	backItem.enabled = [webView canGoBack];
@@ -42,8 +42,8 @@
 	// direct to a poi for testing
 	//	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:3000/mobile/poi/filters?filter=Activity&lat=35.0914383&lng=-106.6040776#/mobile/activities/show/explora-childrens-museum-albuquerque-new-mexico?filter=Everything&lat=35.0914383&lng=-106.6040776"]]];
 	
-	self.imgPicker = [[UIImagePickerController alloc] init];
-	self.imgPicker.delegate = self;	
+//	self.imgPicker = [[UIImagePickerController alloc] init];
+//	self.imgPicker.delegate = self;	
 	[self updateButtons];
 	[self insertCoolLogo];
 }
@@ -85,8 +85,28 @@
 	self.webView = nil;
 }
 
+- (BOOL)startCameraPickerFromViewController:(UIViewController*)controller usingDelegate:(id<UIImagePickerControllerDelegate,UINavigationControllerDelegate>)delegateObject
+									 source:(UIImagePickerControllerSourceType)source
+{
+    if ( (![UIImagePickerController isSourceTypeAvailable:source]))
+		source = UIImagePickerControllerSourceTypeSavedPhotosAlbum;  // fallback if none available
+	
+	if ( (![UIImagePickerController isSourceTypeAvailable:source])       || (delegateObject == nil) || (controller == nil))
+        return NO;
+	
+    UIImagePickerController* picker = [[[UIImagePickerController alloc] init] autorelease];
+	
+	picker.sourceType = source;
+    picker.delegate =  delegateObject;
+	picker.allowsEditing = YES;
+	[controller presentModalViewController:picker animated:YES];
+    return YES;
+}
+
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
 	NSString *url = [[request URL] absoluteString];
+	
+	NSLog(@"JSURL: %@",url);
 	
 	NSArray *urlArray = [url componentsSeparatedByString:@"?"];
 	NSString *cmd = @"";
@@ -104,15 +124,18 @@
 			[paramsToPass addObject:aParam];
 		}
 	}
-	NSLog(@"JSURL: %@",url);
+	
+	
 	if([cmd compare:@"choosePhoto"] == NSOrderedSame){
-		//[locationManager startUpdatingLocation];
-		[self presentModalViewController:self.imgPicker animated:YES];
+		self.photoPostOptions = [[EngineDude engineDude] keysAndValuePairsFromURLString:url];
+		[self startCameraPickerFromViewController:self usingDelegate:self source:UIImagePickerControllerSourceTypePhotoLibrary];
 	}
 	else if([cmd compare:@"takePhoto"] == NSOrderedSame){
-		//[locationManager startUpdatingLocation];
+		self.photoPostOptions = [[EngineDude engineDude] keysAndValuePairsFromURLString:url];
+		[self startCameraPickerFromViewController:self usingDelegate:self source:UIImagePickerControllerSourceTypeCamera];
 	}
 	else if([cmd compare:@"logMessage"] == NSOrderedSame){
+		
 		NSString *message = [[paramsToPass objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
 		NSLog(@"JSMessage: %@",message);
 	}
@@ -147,7 +170,7 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)img editingInfo:(NSDictionary *)editInfo {
-	PhotoPreviewViewController *photoViewController = [[PhotoPreviewViewController alloc]init:img];
+	PhotoPreviewViewController *photoViewController = [[PhotoPreviewViewController alloc]init:img options:photoPostOptions];
 	[self performSelector:@selector(reallyShowPhotoPreview:) withObject:photoViewController afterDelay:0.5];
 //	[self presentModalViewController:[photoViewController animated:YES]];
 	[[picker parentViewController] dismissModalViewControllerAnimated:YES];
@@ -171,11 +194,11 @@
 }
 
 - (void)requestFailed:(NSString *)identifier withError:(NSError *)error {
-	
+	NSLog([error localizedDescription]);
 }
 
 - (void)requestSucceeded:(NSString *)identifier {
-	
+	NSLog(@"succeeded!");
 }
 
 

@@ -13,9 +13,11 @@
 
 @interface FlipsideViewController : UIViewController {
 	id <FlipsideViewControllerDelegate> delegate;
+	UIToolbar *customToolBar;
 }
 
 @property (nonatomic, assign) id <FlipsideViewControllerDelegate> delegate;
+@property (nonatomic, retain) IBOutlet UIToolbar *customToolBar;
 - (IBAction)done:(id)sender;
 @end
 

@@ -95,10 +95,10 @@
 }
 
 - (NSString *)uploadImageData:(NSData *)data withCaption:(NSString *)caption andOptions:(NSDictionary *)options {
-	id cookie = [options valueForKey:@"cookie"];
+	id cookie = [options valueForKey:@"auth_token"];
 	NSMutableData *multiPartData = [self multiPartDataWithImageData:data caption:caption andOptions:(NSDictionary *)options];
 	
-	NSURL *url = [NSURL URLWithString:[options valueForKey:@"actionUrl"]];
+	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/photos",TREKAROO_MOBILE_URL]];
 	
 	// Construct an NSMutableURLRequest for the URL and set appropriate request method.
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url 
@@ -106,7 +106,7 @@
                                                           timeoutInterval:30.0];
 	[theRequest setHTTPMethod:HTTP_POST_METHOD];
 	
-	[theRequest setValue:cookie forHTTPHeaderField:@"Cookie"];
+	[theRequest setValue:[NSString stringWithFormat:@"auth_token=%@",cookie] forHTTPHeaderField:@"Cookie"];
 	[theRequest addValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", BOUNDARY ] forHTTPHeaderField:@"Content-Type"];
 	
 	[theRequest setHTTPBody:multiPartData];   
@@ -195,7 +195,7 @@
     [_connections removeObjectForKey:[connection identifier]];
 }
 
-- (NSDictionary *)keysAndValuePairsFromURLString:(NSString *)url {
+- (NSMutableDictionary *)keysAndValuePairsFromURLString:(NSString *)url {
 	NSRange r = [url rangeOfString:@"?"];
 	NSMutableDictionary *d = [NSMutableDictionary dictionary];
 	if (r.length) {

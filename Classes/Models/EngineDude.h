@@ -18,7 +18,7 @@
 + (EngineDude *)engineDude;
 
 - (NSString *)uploadImage:(UIImage *)image withCaption:(NSString *)caption andOptions:(NSDictionary *)options;
-- (NSDictionary *)keysAndValuePairsFromURLString:(NSString *)url;
+- (NSMutableDictionary *)keysAndValuePairsFromURLString:(NSString *)url;
 
 @end
 

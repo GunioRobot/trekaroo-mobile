@@ -15,8 +15,10 @@
 	UIToolbar *customToolBar;
 	UIBarButtonItem *backItem;
 	UIBarButtonItem *forwardItem;
+	NSMutableDictionary *photoPostOptions;
 }
 
+@property (nonatomic,retain) NSMutableDictionary *photoPostOptions;
 @property (nonatomic,retain) IBOutlet UIWebView *webView;
 @property (nonatomic,retain) IBOutlet UIToolbar *customToolBar;
 @property (nonatomic,retain) IBOutlet UIBarButtonItem *backItem;
