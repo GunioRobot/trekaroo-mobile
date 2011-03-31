@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="34"/>
+			<integer value="54"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -45,7 +45,7 @@
 					<object class="IBUIWebView" id="695191534">
 						<reference key="NSNextResponder" ref="883825266"/>
 						<int key="NSvFlags">310</int>
-						<string key="NSFrame">{{0, 46}, {320, 414}}</string>
+						<string key="NSFrame">{{0, 44}, {320, 416}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -60,7 +60,7 @@
 						<int key="NSvFlags">266</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIButton" id="919468535">
+							<object class="IBUIButton" id="432366446">
 								<reference key="NSNextResponder" ref="577934551"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{290, 13}, {18, 19}}</string>
@@ -74,7 +74,7 @@
 									<double key="NSSize">15</double>
 									<int key="NSfFlags">16</int>
 								</object>
-								<int key="IBUIButtonType">3</int>
+								<int key="IBUIButtonType">4</int>
 								<bool key="IBUIShowsTouchWhenHighlighted">YES</bool>
 								<object class="NSColor" key="IBUIHighlightedTitleColor">
 									<int key="NSColorSpace">3</int>
@@ -128,9 +128,9 @@
 								<reference key="IBUIToolbar" ref="577934551"/>
 								<int key="IBUISystemItemIdentifier">5</int>
 							</object>
-							<object class="IBUIBarButtonItem" id="33979277">
+							<object class="IBUIBarButtonItem" id="526769982">
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<reference key="IBUICustomView" ref="919468535"/>
+								<reference key="IBUICustomView" ref="432366446"/>
 								<reference key="IBUIToolbar" ref="577934551"/>
 							</object>
 						</object>
@@ -187,7 +187,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">showInfo:</string>
-						<reference key="source" ref="919468535"/>
+						<reference key="source" ref="432366446"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -263,7 +263,7 @@
 							<reference ref="632042400"/>
 							<reference ref="118829918"/>
 							<reference ref="917637109"/>
-							<reference ref="33979277"/>
+							<reference ref="526769982"/>
 						</object>
 						<reference key="parent" ref="883825266"/>
 					</object>
@@ -294,17 +294,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">55</int>
-						<reference key="object" ref="33979277"/>
+						<reference key="object" ref="526769982"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="919468535"/>
+							<reference ref="432366446"/>
 						</object>
 						<reference key="parent" ref="577934551"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">54</int>
-						<reference key="object" ref="919468535"/>
-						<reference key="parent" ref="33979277"/>
+						<reference key="object" ref="432366446"/>
+						<reference key="parent" ref="526769982"/>
 					</object>
 				</object>
 			</object>

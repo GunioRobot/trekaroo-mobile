@@ -27,6 +27,7 @@
 		B43641A81344F1A8009E8195 /* forward.png in Resources */ = {isa = PBXBuildFile; fileRef = B43641A41344F1A8009E8195 /* forward.png */; };
 		B43641A91344F1A8009E8195 /* forwardPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = B43641A51344F1A8009E8195 /* forwardPressed.png */; };
 		B436421D13450282009E8195 /* treklogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B436421C13450282009E8195 /* treklogo.png */; };
+		B436434A13452E55009E8195 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B436434913452E55009E8195 /* NSString+URLEncoding.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,8 @@
 		B43641A41344F1A8009E8195 /* forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = forward.png; path = images/forward.png; sourceTree = "<group>"; };
 		B43641A51344F1A8009E8195 /* forwardPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = forwardPressed.png; path = images/forwardPressed.png; sourceTree = "<group>"; };
 		B436421C13450282009E8195 /* treklogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = treklogo.png; path = images/treklogo.png; sourceTree = "<group>"; };
+		B436434813452E55009E8195 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncoding.h"; path = "Classes/Helpers/NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		B436434913452E55009E8195 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+URLEncoding.m"; path = "Classes/Helpers/NSString+URLEncoding.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +189,8 @@
 				B43641361344E694009E8195 /* NSString+UUID.m */,
 				B43641441344EC2B009E8195 /* TKHTTPURLConnection.h */,
 				B43641451344EC2B009E8195 /* TKHTTPURLConnection.m */,
+				B436434813452E55009E8195 /* NSString+URLEncoding.h */,
+				B436434913452E55009E8195 /* NSString+URLEncoding.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 				201B604D1316B53A006FCD79 /* EngineDude.m in Sources */,
 				B43641371344E694009E8195 /* NSString+UUID.m in Sources */,
 				B43641461344EC2B009E8195 /* TKHTTPURLConnection.m in Sources */,
+				B436434A13452E55009E8195 /* NSString+URLEncoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

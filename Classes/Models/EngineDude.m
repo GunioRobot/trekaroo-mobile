@@ -10,6 +10,24 @@
 #import "TKHTTPURLConnection.h"
 #import "trekaroo_mobileAppDelegate.h"
 #import "NSString+UUID.h"
+#import "NSString+URLEncoding.h"
+//
+//@implementation NSURLRequest (IgnoreSSL)
+//
+//+ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString*)host
+//{
+//	// ignore certificate errors only for this domain
+//	if ([host hasSuffix:@"trekaroo.com"])
+//	{
+//		return YES;
+//	}
+//	else
+//	{
+//		return NO;
+//	}
+//}
+//
+//@end
 
 @implementation EngineDude
 
@@ -54,48 +72,49 @@
 
 	NSString *ownerType = [options valueForKey:@"owner_type"];
 	NSString *ownerID = [options valueForKey:@"owner_id"];
-	NSString *authenticityToken = [options valueForKey:@"authenticity_token"];
+	NSString *authenticityToken = [[options valueForKey:@"authenticity_token"] URLDecodedString]; 
 	
 	
 	
-	[postBody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"\n--%@\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	
+	if (caption.length) {
+		[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo[caption]\"\n\n%@\n", caption]
+							  dataUsingEncoding:NSUTF8StringEncoding]];
+		[postBody appendData:[[NSString stringWithFormat:@"--%@\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
+	}
 	
-	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo[caption]\"\r\n\r\n%@\r\n", caption.length ? caption : @" "]
+	
+	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo[owner_type]\"\n\n%@\n", ownerType]
 						  dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"--%@\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	
-	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo[owner_type]\"\r\n\r\n%@\r\n", ownerType]
+	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo[owner_id]\"\n\n%@\n", ownerID]
 						  dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"--%@\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	
-	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo[owner_id]\"\r\n\r\n%@\r\n", ownerID]
+	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"authenticity_token\"\n\n%@\n", authenticityToken]
 						  dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
-	
-	
-	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"authenticity_token\"\r\n\r\n%@\r\n", authenticityToken]
-						  dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"--%@\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	
 	
-	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo[uploaded_data]\"; filename=\"%@.%@\"\r\n",
+	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo[uploaded_data]\"; filename=\"%@.%@\"\n",
 						   [NSString stringWithNewUUID], @"jpg"]
 						  dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[[NSString stringWithFormat:@"Content-Type: %@\r\n", @"image/jpeg"] dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[@"Content-Transfer-Encoding: binary\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"Content-Type: %@\n", @"image/jpeg"] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[@"Content-Transfer-Encoding: binary\n\n" dataUsingEncoding:NSUTF8StringEncoding]];
 	[postBody appendData:data];
-	[postBody appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"\n--%@--\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	return [postBody autorelease];
 }
 
 - (NSString *)uploadImageData:(NSData *)data withCaption:(NSString *)caption andOptions:(NSDictionary *)options {
-	id cookie = [options valueForKey:@"auth_token"];
+	id cookie = [options valueForKey:@"cookie_auth_token"];
 	NSMutableData *multiPartData = [self multiPartDataWithImageData:data caption:caption andOptions:(NSDictionary *)options];
 	
 	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/photos",TREKAROO_MOBILE_URL]];
@@ -168,7 +187,7 @@
     
 //	[_delegate responseHeadersReceived:[resp allHeaderFields]];
 	
-    if (NO) {
+    if (1) {
         // Display headers for debugging.
         NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
         NSLog(@"(%d) [%@]:%@", 
@@ -199,7 +218,7 @@
 	NSRange r = [url rangeOfString:@"?"];
 	NSMutableDictionary *d = [NSMutableDictionary dictionary];
 	if (r.length) {
-		url = [url substringFromIndex:r.location];
+		url = [url substringFromIndex:r.location + 1];
 		NSArray *encodedParameterPairs = [url componentsSeparatedByString:@"&"];
 		for (NSString *encodedPair in encodedParameterPairs) 
 		{
@@ -212,4 +231,17 @@
 	return d;
 }
 
+- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
+	return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+//	if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
+//		if ([trustedHosts containsObject:challenge.protectionSpace.host])
+//			[challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
+	
+	[challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+}
+
+ 
 @end

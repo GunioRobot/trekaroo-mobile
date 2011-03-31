@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "MainViewController.h"
+@interface NSURLRequest (IgnoreSSL)
+@end
 
 @interface EngineDude : NSObject {
 	dispatch_queue_t _engineQueue;

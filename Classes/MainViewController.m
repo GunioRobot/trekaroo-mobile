@@ -34,6 +34,9 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+#warning REMOVE THIS LINE BEFORE SUBMITTING!
+	[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"stg2.trekaroo.com"];
+
 	[super viewDidLoad];
 	[EngineDude engineDude];
 	[webView setDelegate:self];
@@ -150,6 +153,10 @@
 	else{
 		return YES;
 	}
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+	NSLog([error localizedDescription]);
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
