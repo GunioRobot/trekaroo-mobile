@@ -12,5 +12,8 @@
 @interface EngineDude : NSObject {
 	dispatch_queue_t _engineQueue;
 }
-- uploadImage:(UIImage *)image withCaption:(NSString *)caption;
+
++ (EngineDude *)engineDude;
+
+- (void)uploadImage:(UIImage *)image withCaption:(NSString *)caption;
 @end

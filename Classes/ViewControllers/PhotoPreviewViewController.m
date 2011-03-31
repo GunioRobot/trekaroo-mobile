@@ -32,7 +32,7 @@
 
 - (IBAction)cancelAction:(id)sender {
 	[[self parentViewController] dismissModalViewControllerAnimated:YES];
-	[[self parentViewController] sendJSCommandToBrowser:@"alert(\'dialog closed\');"];	
+	[(MainViewController *)[self parentViewController] sendJSCommandToBrowser:@"alert(\'dialog closed\');"];	
 }
 
 - (IBAction)sendPhotoAction:(id)sender {

@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	[webView setDelegate:self];
+#warning : Consider loading a local webpage
 	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://stg2.trekaroo.com/mobile"]]];
 	// direct to a poi for testing
 	//	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:3000/mobile/poi/filters?filter=Activity&lat=35.0914383&lng=-106.6040776#/mobile/activities/show/explora-childrens-museum-albuquerque-new-mexico?filter=Everything&lat=35.0914383&lng=-106.6040776"]]];
