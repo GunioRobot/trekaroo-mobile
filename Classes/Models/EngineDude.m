@@ -76,39 +76,39 @@
 	
 	
 	
-	[postBody appendData:[[NSString stringWithFormat:@"\n--%@\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	
 	if (caption.length) {
-		[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo[caption]\"\n\n%@\n", caption]
+		[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo[caption]\"\r\n\r\n%@\r\n", caption]
 							  dataUsingEncoding:NSUTF8StringEncoding]];
-		[postBody appendData:[[NSString stringWithFormat:@"--%@\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
+		[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
 	}
 	
 	
-	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo[owner_type]\"\n\n%@\n", ownerType]
+	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo[owner_type]\"\r\n\r\n%@\r\n", ownerType]
 						  dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[[NSString stringWithFormat:@"--%@\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	
-	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo[owner_id]\"\n\n%@\n", ownerID]
+	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo[owner_id]\"\r\n\r\n%@\r\n", ownerID]
 						  dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[[NSString stringWithFormat:@"--%@\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	
-	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"authenticity_token\"\n\n%@\n", authenticityToken]
+	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"authenticity_token\"\r\n\r\n%@\r\n", authenticityToken]
 						  dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[[NSString stringWithFormat:@"--%@\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	
 	
-	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo[uploaded_data]\"; filename=\"%@.%@\"\n",
+	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"photo[uploaded_data]\"; filename=\"%@.%@\"\r\n",
 						   [NSString stringWithNewUUID], @"jpg"]
 						  dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[[NSString stringWithFormat:@"Content-Type: %@\n", @"image/jpeg"] dataUsingEncoding:NSUTF8StringEncoding]];
-	[postBody appendData:[@"Content-Transfer-Encoding: binary\n\n" dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"Content-Type: %@\r\n", @"image/jpeg"] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[@"Content-Transfer-Encoding: binary\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
 	[postBody appendData:data];
-	[postBody appendData:[[NSString stringWithFormat:@"\n--%@--\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	return [postBody autorelease];
 }
@@ -117,7 +117,7 @@
 	id cookie = [options valueForKey:@"cookie_auth_token"];
 	NSMutableData *multiPartData = [self multiPartDataWithImageData:data caption:caption andOptions:(NSDictionary *)options];
 	
-	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/photos",TREKAROO_MOBILE_URL]];
+	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/photos/create",TREKAROO_MOBILE_URL]];
 	
 	// Construct an NSMutableURLRequest for the URL and set appropriate request method.
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url 
@@ -127,7 +127,8 @@
 	
 	[theRequest setValue:[NSString stringWithFormat:@"auth_token=%@",cookie] forHTTPHeaderField:@"Cookie"];
 	[theRequest addValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", BOUNDARY ] forHTTPHeaderField:@"Content-Type"];
-	
+
+	[theRequest addValue:[NSString stringWithFormat:@"%d",[multiPartData length]] forHTTPHeaderField: @"Content-Length"];
 	[theRequest setHTTPBody:multiPartData];   
 	
 	
