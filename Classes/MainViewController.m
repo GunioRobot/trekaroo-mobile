@@ -8,23 +8,44 @@
 
 #import "MainViewController.h"
 #import	"PhotoPreviewViewController.h"
-
+#import "EngineDude.h"
 
 @implementation MainViewController
-@synthesize webView;
+@synthesize webView, backItem, forwardItem, customToolBar;
 
+- (void)updateButtons {
+	backItem.enabled = [webView canGoBack];
+	forwardItem.enabled  = [webView canGoForward];
+}
+
+- (void)insertCoolLogo {
+	UIImage *i = [UIImage imageNamed:@"treklogo"];
+	UIImageView *iv = [[[UIImageView alloc] initWithFrame:CGRectMake(0.0,0.0, 160.0, 30.0)] autorelease];
+	iv.contentMode = UIViewContentModeScaleAspectFit;
+	iv.backgroundColor = [UIColor clearColor];
+	iv.opaque = NO;
+	iv.image = i;
+	UIBarButtonItem *item = [[[UIBarButtonItem alloc] initWithCustomView:iv] autorelease];
+	NSMutableArray *items = [NSMutableArray arrayWithArray:[customToolBar items]];
+	[items replaceObjectAtIndex:3 withObject:item];
+	[customToolBar setItems:items];
+	
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	[EngineDude engineDude];
 	[webView setDelegate:self];
 #warning : Consider loading a local webpage
-	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://stg2.trekaroo.com/mobile"]]];
+	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:TREKAROO_MOBILE_URL]]];
 	// direct to a poi for testing
 	//	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:3000/mobile/poi/filters?filter=Activity&lat=35.0914383&lng=-106.6040776#/mobile/activities/show/explora-childrens-museum-albuquerque-new-mexico?filter=Everything&lat=35.0914383&lng=-106.6040776"]]];
 	
 	self.imgPicker = [[UIImagePickerController alloc] init];
-	self.imgPicker.delegate = self;			
+	self.imgPicker.delegate = self;	
+	[self updateButtons];
+	[self insertCoolLogo];
 }
 
 
@@ -57,6 +78,11 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
+	self.backItem = nil;
+	self.forwardItem = nil;
+	self.webView.delegate = nil;
+	self.customToolBar = nil;
+	self.webView = nil;
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
@@ -93,6 +119,7 @@
 	/*
 	 *	Only load the page if it is the initial index.html file
 	 */
+	
 	NSRange aSubStringRange = [url rangeOfString:@"iPhoneCommand"];
 	if(aSubStringRange.length != 0){
 		return NO;
@@ -105,6 +132,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
 	NSString *jsCommand = @"Trekaroo.Mobile.setIOS();";
 	[self.webView stringByEvaluatingJavaScriptFromString:jsCommand];
+	[self updateButtons];
 }
 
 - (void) sendJSCommandToBrowser: (NSString*)command {
@@ -136,9 +164,20 @@
 
 
 - (void)dealloc {
+	webView.delegate = nil;
+	
 	[webView release];
     [super dealloc];
 }
+
+- (void)requestFailed:(NSString *)identifier withError:(NSError *)error {
+	
+}
+
+- (void)requestSucceeded:(NSString *)identifier {
+	
+}
+
 
 
 @end

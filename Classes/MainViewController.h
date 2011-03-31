@@ -12,14 +12,23 @@
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIWebViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
 	UIWebView *webView;
 	UIImagePickerController *imgPicker;
-	
+	UIToolbar *customToolBar;
+	UIBarButtonItem *backItem;
+	UIBarButtonItem *forwardItem;
 }
 
-@property (nonatomic,retain)IBOutlet UIWebView *webView;
+@property (nonatomic,retain) IBOutlet UIWebView *webView;
+@property (nonatomic,retain) IBOutlet UIToolbar *customToolBar;
+@property (nonatomic,retain) IBOutlet UIBarButtonItem *backItem;
+@property (nonatomic,retain) IBOutlet UIBarButtonItem *forwardItem;
 @property (nonatomic, retain) UIImagePickerController *imgPicker;
 
 - (IBAction)showInfo:(id)sender;
 - (void) sendJSCommandToBrowser: (NSString*)command;
 
+#define STAGING_URL @"http://stg2.trekaroo.com/mobile"
 
+- (void)requestFailed:(NSString *)identifier withError:(NSError *)error;
+- (void)requestSucceeded:(NSString *)identifier;
+	
 @end
