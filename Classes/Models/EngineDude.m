@@ -76,7 +76,7 @@
 	
 	
 	
-	[postBody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", BOUNDARY ] dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	
 	if (caption.length) {
@@ -114,7 +114,7 @@
 }
 
 - (NSString *)uploadImageData:(NSData *)data withCaption:(NSString *)caption andOptions:(NSDictionary *)options {
-	id cookie = [options valueForKey:@"cookie_auth_token"];
+	NSString *cookie = [[options valueForKey:@"cookie"] URLDecodedString]; 
 	NSMutableData *multiPartData = [self multiPartDataWithImageData:data caption:caption andOptions:(NSDictionary *)options];
 	
 	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/photos/create",TREKAROO_MOBILE_URL]];
@@ -125,7 +125,7 @@
                                                           timeoutInterval:30.0];
 	[theRequest setHTTPMethod:HTTP_POST_METHOD];
 	
-	[theRequest setValue:[NSString stringWithFormat:@"auth_token=%@",cookie] forHTTPHeaderField:@"Cookie"];
+	[theRequest setValue:cookie forHTTPHeaderField:@"Cookie"];
 	[theRequest addValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", BOUNDARY ] forHTTPHeaderField:@"Content-Type"];
 
 	[theRequest addValue:[NSString stringWithFormat:@"%d",[multiPartData length]] forHTTPHeaderField: @"Content-Length"];
