@@ -149,6 +149,7 @@
 
 - (NSString *)uploadImage:(UIImage *)image withCaption:(NSString *)caption andOptions:(NSDictionary *)options{
 	_delegate = [(trekaroo_mobileAppDelegate *)[[UIApplication sharedApplication] delegate] mainViewController];
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 	return [self uploadImageData:UIImageJPEGRepresentation(image, COMPRESSION_FACTOR) withCaption:caption andOptions:(NSDictionary *)options];
 }
 
@@ -186,6 +187,8 @@
         [_connections removeObjectForKey:[connection identifier]];
     }
     
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
 //	[_delegate responseHeadersReceived:[resp allHeaderFields]];
 	
     if (1) {
@@ -213,6 +216,7 @@
     
     // Release the connection.
     [_connections removeObjectForKey:[connection identifier]];
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 - (NSMutableDictionary *)keysAndValuePairsFromURLString:(NSString *)url {

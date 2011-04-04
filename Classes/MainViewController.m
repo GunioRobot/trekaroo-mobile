@@ -18,14 +18,26 @@
 	forwardItem.enabled  = [webView canGoForward];
 }
 
+- (void)goHome:(id)xender {
+	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:TREKAROO_MOBILE_URL]]];
+}
+
 - (void)insertCoolLogo {
 	UIImage *i = [UIImage imageNamed:@"treklogo"];
-	UIImageView *iv = [[[UIImageView alloc] initWithFrame:CGRectMake(0.0,0.0, 160.0, 30.0)] autorelease];
-	iv.contentMode = UIViewContentModeScaleAspectFit;
-	iv.backgroundColor = [UIColor clearColor];
-	iv.opaque = NO;
-	iv.image = i;
-	UIBarButtonItem *item = [[[UIBarButtonItem alloc] initWithCustomView:iv] autorelease];
+//	UIImageView *iv = [[[UIImageView alloc] initWithFrame:CGRectMake(0.0,0.0, 160.0, 30.0)] autorelease];
+//	iv.contentMode = UIViewContentModeScaleAspectFit;
+//	iv.backgroundColor = [UIColor clearColor];
+//	iv.opaque = NO;
+//	iv.image = i;
+	UIButton *b = [UIButton buttonWithType:UIButtonTypeCustom];
+	b.frame = CGRectMake(0.0,0.0, 160.0, 30.0);
+	[b addTarget:self action:@selector(goHome:) forControlEvents:UIControlEventTouchUpInside];
+	[b setImage:i forState:UIControlStateNormal];
+	b.showsTouchWhenHighlighted = YES;
+	b.backgroundColor = [UIColor clearColor];
+	b.opaque = NO;
+	
+	UIBarButtonItem *item = [[[UIBarButtonItem alloc] initWithCustomView:b] autorelease];
 	NSMutableArray *items = [NSMutableArray arrayWithArray:[customToolBar items]];
 	[items replaceObjectAtIndex:3 withObject:item];
 	[customToolBar setItems:items];
@@ -41,7 +53,12 @@
 	[EngineDude engineDude];
 	[webView setDelegate:self];
 #warning : Consider loading a local webpage
-	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:TREKAROO_MOBILE_URL]]];
+	
+	NSString *path = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"localwebcache"] stringByAppendingPathComponent:@"index.html"];
+	NSURL *url = [NSURL fileURLWithPath:path];
+	[webView loadRequest:[NSURLRequest requestWithURL:url]];
+
+	NSLog([[NSDate date] description]);
 	// direct to a poi for testing
 	//	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:3000/mobile/poi/filters?filter=Activity&lat=35.0914383&lng=-106.6040776#/mobile/activities/show/explora-childrens-museum-albuquerque-new-mexico?filter=Everything&lat=35.0914383&lng=-106.6040776"]]];
 	
@@ -98,7 +115,8 @@
         return NO;
 	
     UIImagePickerController* picker = [[[UIImagePickerController alloc] init] autorelease];
-	
+	_lastImageWasSnapshot = (source == UIImagePickerControllerSourceTypeCamera);
+
 	picker.sourceType = source;
     picker.delegate =  delegateObject;
 	picker.allowsEditing = YES;
@@ -110,6 +128,10 @@
 	NSString *url = [[request URL] absoluteString];
 	
 	NSLog(@"JSURL: %@",url);
+	NSLog([[NSDate date] description]);
+
+//	NSString *s = [NSString stringWithContentsOfURL:[request URL]];
+//	NSLog(s);
 	
 	NSArray *urlArray = [url componentsSeparatedByString:@"?"];
 	NSString *cmd = @"";
@@ -155,11 +177,22 @@
 	}
 }
 
+- (void)reallyLoadFirstPage {
+	if (!_hasBeenLoaded) {
+		_hasBeenLoaded = YES;
+		NSLog([[NSDate date] description]);
+//		[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:TREKAROO_MOBILE_URL]]];
+	}
+}
+
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-	NSLog([error localizedDescription]);
+	if (!_hasBeenLoaded) [self reallyLoadFirstPage];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+	
+	if (!_hasBeenLoaded) [self reallyLoadFirstPage];
+
 	NSString *jsCommand = @"Trekaroo.Mobile.setIOS();";
 	[self.webView stringByEvaluatingJavaScriptFromString:jsCommand];
 	[self updateButtons];
@@ -178,7 +211,14 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)img editingInfo:(NSDictionary *)editInfo {
 	PhotoPreviewViewController *photoViewController = [[PhotoPreviewViewController alloc]init:img options:photoPostOptions];
-	[self performSelector:@selector(reallyShowPhotoPreview:) withObject:photoViewController afterDelay:0.5];
+	
+	[self performSelector:@selector(reallyShowPhotoPreview:) withObject:photoViewController afterDelay:0.7];
+	
+	if (img && _lastImageWasSnapshot) {
+		_lastImageWasSnapshot = NO;
+		UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
+		
+	}
 //	[self presentModalViewController:[photoViewController animated:YES]];
 	[[picker parentViewController] dismissModalViewControllerAnimated:YES];
 }
@@ -201,11 +241,20 @@
 }
 
 - (void)requestFailed:(NSString *)identifier withError:(NSError *)error {
-	NSLog([error localizedDescription]);
+	UIAlertView *v = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Photo Upload",@"") message:NSLocalizedString(@"Could not upload photo at this this. Please try later.",@"")
+											   delegate:self cancelButtonTitle:NSLocalizedString(@"OK",@"") otherButtonTitles:nil];
+	
+	[v show];
+	[v release];
 }
 
 - (void)requestSucceeded:(NSString *)identifier {
-	NSLog(@"succeeded!");
+	UIAlertView *v = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Photo Uploaded",@"") message:NSLocalizedString(@"Thank you.",@"")
+											   delegate:self cancelButtonTitle:NSLocalizedString(@"OK",@"") otherButtonTitles:nil];
+	
+	[v show];
+	[v release];
+	// think about this: [webView reload];
 }
 
 

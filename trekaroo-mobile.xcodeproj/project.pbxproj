@@ -28,6 +28,7 @@
 		B43641A91344F1A8009E8195 /* forwardPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = B43641A51344F1A8009E8195 /* forwardPressed.png */; };
 		B436421D13450282009E8195 /* treklogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B436421C13450282009E8195 /* treklogo.png */; };
 		B436434A13452E55009E8195 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B436434913452E55009E8195 /* NSString+URLEncoding.m */; };
+		B4CCF93E134A3BF900C5F783 /* localwebcache in Resources */ = {isa = PBXBuildFile; fileRef = B4CCF93C134A3BF900C5F783 /* localwebcache */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		B436421C13450282009E8195 /* treklogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = treklogo.png; path = images/treklogo.png; sourceTree = "<group>"; };
 		B436434813452E55009E8195 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncoding.h"; path = "Classes/Helpers/NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		B436434913452E55009E8195 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+URLEncoding.m"; path = "Classes/Helpers/NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		B4CCF93C134A3BF900C5F783 /* localwebcache */ = {isa = PBXFileReference; lastKnownFileType = folder; name = localwebcache; path = Resources/localwebcache; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				B4CCF93C134A3BF900C5F783 /* localwebcache */,
 				B43641321344E60D009E8195 /* Helpers */,
 				201B60481316B4F8006FCD79 /* Models */,
 				2039A14312E893A7008DE35E /* View Controllers */,
@@ -266,6 +269,7 @@
 				B43641A81344F1A8009E8195 /* forward.png in Resources */,
 				B43641A91344F1A8009E8195 /* forwardPressed.png in Resources */,
 				B436421D13450282009E8195 /* treklogo.png in Resources */,
+				B4CCF93E134A3BF900C5F783 /* localwebcache in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

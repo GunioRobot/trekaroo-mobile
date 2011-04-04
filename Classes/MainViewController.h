@@ -16,6 +16,8 @@
 	UIBarButtonItem *backItem;
 	UIBarButtonItem *forwardItem;
 	NSMutableDictionary *photoPostOptions;
+	BOOL _lastImageWasSnapshot;
+	BOOL _hasBeenLoaded;
 }
 
 @property (nonatomic,retain) NSMutableDictionary *photoPostOptions;

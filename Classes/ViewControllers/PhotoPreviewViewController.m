@@ -38,6 +38,7 @@
 
 - (IBAction)sendPhotoAction:(id)sender {
 	[[EngineDude engineDude] uploadImage:(UIImage *)uiImage withCaption:(NSString *)captionField.text andOptions:photoOptions];
+	[[self parentViewController] dismissModalViewControllerAnimated:YES];
 }
 
 
