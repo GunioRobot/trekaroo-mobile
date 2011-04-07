@@ -146,9 +146,9 @@
 	NSLog(@"JSURL: %@",url);
 	NSLog([[NSDate date] description]);
 	
-	BOOL shouldHide = [url isEqualToString:TREKAROO_MOBILE_URL] ||
-	([[request URL] isFileURL] && [[url lastPathComponent] isEqualToString:@"index.html"]);
-	[self hideToolbar:shouldHide];
+//	BOOL shouldHide = [url isEqualToString:TREKAROO_MOBILE_URL] ||
+//	([[request URL] isFileURL] && [[url lastPathComponent] isEqualToString:@"index.html"]);
+//	[self hideToolbar:shouldHide];
 //	NSString *s = [NSString stringWithContentsOfURL:[request URL]];
 //	NSLog(s);
 	
