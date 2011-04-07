@@ -196,9 +196,16 @@
 	}
 }
 
+- (void)avoidFlashLater {
+	//		[UIView beginAnimations:nil context:NULL];
+	webView.alpha = 1.0;
+	//		[UIView commitAnimations];
+}
+
 - (void)reallyLoadFirstPage {
 	if (!_hasBeenLoaded) {
 		_hasBeenLoaded = YES;
+		[self performSelector:@selector(avoidFlashLater) withObject:nil afterDelay:0.2];
 //		NSLog(TREKAROO_MOBILE_URL);
 //		[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:TREKAROO_MOBILE_URL]]];
 	}
