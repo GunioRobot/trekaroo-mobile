@@ -19,14 +19,14 @@
 }
 
 - (void)hideToolbar:(BOOL)hide {
-	CGRect b = [self.view bounds];
-	CGRect tr = customToolBar.frame;
-	CGRect wr = hide ? b : CGRectMake(0.0,tr.size.height, b.size.width, b.size.height - tr.size.height);
-	tr.origin.y = hide ? -tr.size.height : 0.0;
-	[UIView beginAnimations:@"showhide" context:nil];
-	webView.frame = wr;
-	customToolBar.frame = tr;
-	[UIView commitAnimations];
+//	CGRect b = [self.view bounds];
+//	CGRect tr = customToolBar.frame;
+//	CGRect wr = hide ? b : CGRectMake(0.0,tr.size.height, b.size.width, b.size.height - tr.size.height);
+//	tr.origin.y = hide ? -tr.size.height : 0.0;
+//	[UIView beginAnimations:@"showhide" context:nil];
+//	webView.frame = wr;
+//	customToolBar.frame = tr;
+//	[UIView commitAnimations];
 }
 
 - (void)goHome:(id)xender {
@@ -81,7 +81,7 @@
 //	self.imgPicker = [[UIImagePickerController alloc] init];
 //	self.imgPicker.delegate = self;	
 //	[self updateButtons];
-	[self insertCoolLogo];
+//	[self insertCoolLogo];
 }
 
 
