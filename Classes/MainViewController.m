@@ -30,6 +30,7 @@
 }
 
 - (void)goHome:(id)xender {
+//	[self loadLocalHomePage];
 	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:TREKAROO_MOBILE_URL]]];
 }
 
@@ -56,6 +57,12 @@
 	
 }
 
+- (void)loadLocalHomePage {
+	NSString *path = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"localwebcache"] stringByAppendingPathComponent:@"index.html"];
+	NSURL *url = [NSURL fileURLWithPath:path];
+	[webView loadRequest:[NSURLRequest requestWithURL:url]];
+}
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 #warning REMOVE THIS LINE BEFORE SUBMITTING!
@@ -66,10 +73,8 @@
 	[webView setDelegate:self];
 	webView.scalesPageToFit = YES;
 	
-	NSString *path = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"localwebcache"] stringByAppendingPathComponent:@"index.html"];
-	NSURL *url = [NSURL fileURLWithPath:path];
-	[webView loadRequest:[NSURLRequest requestWithURL:url]];
 	[self hideToolbar:YES];
+	[self loadLocalHomePage];
 	// direct to a poi for testing
 	//	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:3000/mobile/poi/filters?filter=Activity&lat=35.0914383&lng=-106.6040776#/mobile/activities/show/explora-childrens-museum-albuquerque-new-mexico?filter=Everything&lat=35.0914383&lng=-106.6040776"]]];
 	
@@ -194,8 +199,8 @@
 - (void)reallyLoadFirstPage {
 	if (!_hasBeenLoaded) {
 		_hasBeenLoaded = YES;
-		NSLog(TREKAROO_MOBILE_URL);
-		[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:TREKAROO_MOBILE_URL]]];
+//		NSLog(TREKAROO_MOBILE_URL);
+//		[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:TREKAROO_MOBILE_URL]]];
 	}
 }
 

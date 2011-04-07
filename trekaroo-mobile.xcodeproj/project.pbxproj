@@ -31,6 +31,8 @@
 		B4A20496134E03E2006CCC3D /* CustomToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A20495134E03E2006CCC3D /* CustomToolBar.m */; };
 		B4A204BF134E05B2006CCC3D /* toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A204BD134E05B2006CCC3D /* toolbar.png */; };
 		B4A204C0134E05B2006CCC3D /* toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A204BE134E05B2006CCC3D /* toolbar@2x.png */; };
+		B4A20637134E5E0C006CCC3D /* deleteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A20635134E5E0C006CCC3D /* deleteButton.png */; };
+		B4A20638134E5E0C006CCC3D /* deleteButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A20636134E5E0C006CCC3D /* deleteButtonPressed.png */; };
 		B4CCF93E134A3BF900C5F783 /* localwebcache in Resources */ = {isa = PBXBuildFile; fileRef = B4CCF93C134A3BF900C5F783 /* localwebcache */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,8 @@
 		B4A20495134E03E2006CCC3D /* CustomToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomToolBar.m; path = Classes/Helpers/CustomToolBar.m; sourceTree = "<group>"; };
 		B4A204BD134E05B2006CCC3D /* toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = toolbar.png; path = images/toolbar.png; sourceTree = "<group>"; };
 		B4A204BE134E05B2006CCC3D /* toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar@2x.png"; path = "images/toolbar@2x.png"; sourceTree = "<group>"; };
+		B4A20635134E5E0C006CCC3D /* deleteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deleteButton.png; path = images/deleteButton.png; sourceTree = "<group>"; };
+		B4A20636134E5E0C006CCC3D /* deleteButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deleteButtonPressed.png; path = images/deleteButtonPressed.png; sourceTree = "<group>"; };
 		B4CCF93C134A3BF900C5F783 /* localwebcache */ = {isa = PBXFileReference; lastKnownFileType = folder; name = localwebcache; path = Resources/localwebcache; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,6 +216,8 @@
 			children = (
 				B4A204BD134E05B2006CCC3D /* toolbar.png */,
 				B4A204BE134E05B2006CCC3D /* toolbar@2x.png */,
+				B4A20635134E5E0C006CCC3D /* deleteButton.png */,
+				B4A20636134E5E0C006CCC3D /* deleteButtonPressed.png */,
 				B436421C13450282009E8195 /* treklogo.png */,
 				B43641A21344F1A8009E8195 /* back.png */,
 				B43641A31344F1A8009E8195 /* backPressed.png */,
@@ -283,6 +289,8 @@
 				B4CCF93E134A3BF900C5F783 /* localwebcache in Resources */,
 				B4A204BF134E05B2006CCC3D /* toolbar.png in Resources */,
 				B4A204C0134E05B2006CCC3D /* toolbar@2x.png in Resources */,
+				B4A20637134E5E0C006CCC3D /* deleteButton.png in Resources */,
+				B4A20638134E5E0C006CCC3D /* deleteButtonPressed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
