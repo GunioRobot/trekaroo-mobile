@@ -2,51 +2,31 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		<meta name = "viewport" content = "user-scalable=no, width=device-width">
 		<title>Trekaroo</title>
-		<link href="troo_mobile.css" media="screen" rel="stylesheet" type="text/css" />
+		<link href="index.css" media="screen" rel="stylesheet" type="text/css" />
 		
-    <link rel="apple-touch-icon-precomposed" href="icon-precomposed.png" />
+	<link rel="apple-touch-icon-precomposed" href="icon-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="icon-precomposed@2x.png" />	</head>
-	<body>
-		<div data-role="page" class='home_page show' >
-      <a href="http://trekaroo.com/mobile/home_page" class="home" rel="external"></a>
- 			<div class="search_titlebar">
-	<input class="quiet chooser" id="place_chooser_mobile" name="place_chooser/mobile" title="destination (e.g. New York City, San Francisco Bay Area)" type="text" value="" />
-</div>
-
-      
-
-      <div data-role="content">
-        <div class="remote_control">
-          <div class="nearby"><a href="#" class="geolocation" rel="/mobile/poi/filters?filter=Activity"></a></div>
-          <ul class="minor_controls">
-            <li><div class="bookmarks"><a href="http://trekaroo.com/mobile/bookmarks" rel="external"></a></div></li>
-            <li><div class="recents"><a href="http://trekaroo.com/mobile/recents" rel="external"></a></div></li>
-            <li><div class="my_passport"><a href="http://trekaroo.com/mobile/stamps" rel="external"></a></div></li>
-          </ul>
-        </div>
-        <a href="http://stg2.trekaroo.com/?mobile=false" data-role="button" rel="external">Non-mobile trekaroo</a>
-        <a href="mailto:          1048372436nfo@trekaroo.com?subject=Mobile Site Feedback" data-role="button">Send us feedback</a>
-  <div class="about">
-	  trekaroo is the fun	way to get the inside	scoop on traveling with	kids.  We provide reviews	of kid-friendly hotels,	activities, and travel tips	for family fun.
-  </div>
-  <div class="legal">
-    2011 trekaroo, inc.<br/>
-    trekaroo <a href="http://www.trekaroo.com/privacy.html" rel="external">privacy policy</a> and <a href="http://www.trekaroo.com/terms_of_use.html" rel="external">terms of use</a>
-  </div>
-</div>
-
-      </div><!-- /content -->
+	<body width='640'>
+		<div class='logo'></div>
+		<div class='stripes'></div>		
+		<div class="remote_control">
+			<ul class="vertical">
+				<li id="nearby"><a href="next_page.html	"></a></li>
+				<li id="destination"><a href="www.trekaroo.com"></a></li>
+				<li id="rate"><a href="www.yahoo.com"></a></li>
+			</ul>
+			<ul class="horizontal">
+				<li id="non-mobile"><a href="#"></a></li>
+				<li id="passport"><a href="#"></a></li>
+				<li id="feedback"><a href="#"></a></li>			
+			</ul>
 		</div>
-  </body>
+		<div id='curve'></div>
+		<div id='map'></div>	
+	</body>
   
-<!--
-<script src="http://code.google.com/apis/gears/gears_init.js" type="text/javascript"></script>
-<script src="http://cdn.simplegeo.com/js/1.2/simplegeo.places.min.js" type="text/javascript"></script>
-<script src="/javascripts/jquery-1.5.min.js?1296850532" type="text/javascript"></script>
-<script src="/javascripts/jquery.mobile.custom.js?1294107629" type="text/javascript"></script>
-<script src="/javascripts/jquery.mobile-1.0a3/jquery.mobile-1.0a3.min.js?1296850532" type="text/javascript"></script>
-<script src="/javascripts/troo_mobile.js?1301937940" type="text/javascript"></script>
--->
-
+<script src="jquery-1.5.min.js" type="text/javascript"></script>
+<script src="index.js" type="text/javascript"></script>
 </html>

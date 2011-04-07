@@ -1,0 +1,544 @@
+* { font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif !important; }
+
+.hide_not_mobile_app {
+  display: none !important;
+}
+
+h4 {
+  margin-bottom: 0;
+}
+
+a.home {
+  display: block;
+  width: auto;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  background: url(/images/mobile/trekaroo_sm.gif) center center no-repeat;
+  background-color: #ffffff;
+}
+
+.search_titlebar, .outerstripes {
+	background: url(/images/mobile/stripes.png) repeat;
+}
+
+.outerstripes {
+  height: 6px;
+}
+
+.search_titlebar {
+  padding-top: 3px; padding-bottom: 3px;
+}
+
+a.nav {
+	background:none repeat scroll 0 0 #444444;
+	color:#FFFFFF !important;
+	float:right;
+	font-size:13px;
+	height: 26px;
+	padding:9px 20px 0;
+	margin-top: 2px; margin-right: 2px; margin-bottom: -2px;
+	text-decoration:none;
+}
+
+a.nav_image {
+	float:left;
+	height:22px;
+	padding: 8px;
+}
+
+.poi_titlebar {
+  padding-left: 2px;
+	margin-bottom: 8px;
+}
+
+.poi_titlebar input{
+	height: 22px;
+	padding-bottom: 1px;
+  margin: 0;
+}
+
+.poi_titlebar .ui-focus  {
+    -moz-box-shadow: none;
+}
+
+.poi_titlebar {
+	padding-top: 4px;
+	height:36px;
+}
+
+.poi_titlebar div.ui-body {
+	clear: none;
+}
+
+.poi_titlebar .ui-field-contain {
+	margin: 0 !important;
+}
+
+.titleonly_titlebar{
+  background-image: none;
+  background-color: white;
+}
+
+.titleonly_titlebar span{
+  float: left;
+  padding: 4px;
+}
+
+.titleonly_titlebar img{
+  padding: 6px 0 0 6px;
+}
+
+.titleonly_titlebar span.home{
+  padding-bottom: 0;
+}
+
+.titleonly_titlebar span.title{
+  padding-top: 3px;
+}
+
+span.title {
+  float: left;
+  color: #555555;
+  font-size: 22px;
+  font-weight: bold;
+  padding-left: 8px;
+}
+
+div.ui-select {
+	margin-top: -6px;
+}
+
+.poi_titlebar div.ui-select {
+	width: 100%;
+}
+
+.poi_titlebar span.ui-icon-arrow-d {
+	margin-top: -10px;
+}
+
+.poi_titlebar div.ui-select span.ui-btn-inner {
+	padding-left: 7px;
+}
+
+div.ui-content {
+	padding-top: 0px;
+}
+
+h1.title {
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+h2.place_title {
+	margin-top: 10px;
+	font-size: 16px;
+}
+
+div.activities h1.title, div.hotels h1.title{
+	margin-bottom: -16px;
+}
+
+a {
+	font: normal 14px 'Lucida Grande','Lucida Sans Unicode',Arial,Verdana,sans-serif;
+	color: #662d91;
+	text-decoration: none;
+}
+
+.ui-li-thumb {
+	margin: 6px;
+	max-height: 120px;
+	max-width: 120px;
+}
+
+.quiet {
+	color: #C0C0C0;
+}
+
+div.reviews span.stars {
+  margin-top: 14px;
+}
+
+div.reviews.index div.ui-btn-inner {
+  padding-top: 6px;
+}
+
+span.stars, span.stars span {
+    display: block;
+    background: url(/images/mobile/stars.png) 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+}
+
+span.stars span {
+    background-position: 0 0;
+}
+
+p {
+	padding-top: 5px;=
+}
+
+div.show p.address, p.phone {
+	font-size: 12px;
+}
+
+div.activities.show p.name a, div.hotels.show p.name a{
+	font-size: 22px !important;
+}
+
+div.activities.show span.poi_image, div.hotels.show span.poi_image {
+	position: relative;
+}
+
+.review {
+	font-size:11px;
+	font-weight:normal;
+}
+
+.home_page.show li{
+	list-style-type:none;
+  text-align: center;
+}
+
+.portrait .home_page.show li{
+}
+.landscape .home_page.show li{
+}
+
+.home_page div.remote_control, .home_page div.ui-content {
+  padding: 0;
+}
+
+.home_page div.remote_control {
+  background: url(/images/mobile/background/blue_tile_bg.jpg);
+  height: 260px;
+}
+
+.home_page.show div.nearby {
+  margin-top: 27px;
+  margin-left: 10px;
+  width: 157px;
+  height: 186px;
+  background: url(nearby.png)  -147px 0 no-repeat;
+  float: left;
+}
+
+.home_page.show div.nearby:hover {
+  background: url(/images/mobile/standard/nearby.png)  0 0 no-repeat;
+}
+
+.home_page.show div.stamp_passport {
+  margin-left: -21px; width: 92px; padding-left: 0px;
+  height: 130px;
+  background: url(/images/mobile/standard/stamp.png)  -97px 0 no-repeat;
+}
+
+.home_page.show div.stamp_passport:hover {
+  background: url(/images/mobile/standard/stamp.png)  0 0 no-repeat;
+}
+
+.home_page.show div.my_passport {
+  width: 118px; height: 59px;
+  background: url(/images/mobile/standard/passport.png)  -116px 0 no-repeat;
+}
+
+.home_page.show div.my_passport:hover {
+  background: url(/images/mobile/standard/passport.png)  0 0 no-repeat;
+}
+
+.home_page.show div.bookmarks {
+  height: 55px;
+  width: 115px;
+  background: url(/images/mobile/standard/bookmarks.png)  -111px 0 no-repeat;
+}
+
+.home_page.show div.bookmarks:hover {
+  background: url(/images/mobile/standard/bookmarks.png)  0 0 no-repeat;
+}
+
+.home_page.show div.recents {
+  height: 55px;
+  width: 95px;
+  background: url(/images/mobile/standard/recents.png)  -91px 0 no-repeat;
+}
+
+.home_page.show div.recents:hover {
+  background: url(/images/mobile/standard/recents.png)  0 0 no-repeat;
+}
+
+.home_page.show ul.passport_controls {
+  clear: both;
+  width: 250px;
+  padding-left: 60px;
+}
+
+.home_page.show ul.passport_controls li{
+  float: left;
+}
+
+.home_page.show ul.minor_controls {
+  margin-top: 44px;
+  float: left;
+  width: 118px;
+  padding-left: 0;
+}
+
+.home_page.show div.options {
+  display: none;
+  width: 32px;
+  height: 52px;
+  background: url(/images/mobile/home320.jpg)  -134px -424px no-repeat;
+}
+
+.home_page.show li div a{
+	font-size: 10px;
+}
+
+.home_page.show li div.ui-btn-inner, li.no-thumb div.ui-btn-inner{
+	padding-left: 20px !important;
+}
+
+.home_page.show .about, .home_page.show .legal, .home_page.show .legal a {
+ margin: 10px;
+ text-align: center;
+ font-size: 12px;
+}
+.home_page.show .legal a {
+  margin: 0;
+}
+
+
+div.ratings {
+	height: 19px;
+}
+
+div.distance {
+	margin-bottom: 1px;
+}
+
+div.ratings, div.distance {
+	font-weight: normal;
+	font-size: 12px;
+	margin-right: 6px;
+}
+
+div.ratings span {
+	float: left;
+}
+
+li.ui-li-has-thumb div.ui-btn-inner {
+		padding-left: 70px;
+}
+
+
+ul.ui-listview {
+	margin-top: 0 !important;
+}
+
+div.united_states li.ui-btn div.ui-btn-inner {
+	padding-left: 12px !important;
+}
+
+div.ui-btn-inner{
+    padding-right: 30px !important;
+}
+
+div.show span.name_and_address {
+  float: left;
+}
+
+div.full-review {
+	padding-left: 55px !important;
+	margin-top: -1px !important;
+}
+
+.review .title, .review .user_stats {
+	font-size:14px;
+	font-weight: bold;
+  margin-top: -3px;
+	margin-bottom: 2px;
+}
+
+.review .date {
+	font-size:11px;
+	font-weight:normal;
+}
+
+.review {
+	font-size:12px;
+	font-weight:normal;
+}
+
+div.user_stats span.profile_image {
+	width:60px;
+}
+
+div.user_stats div.count {
+	width: 50px;
+}
+
+div.user_stats div.count img {
+	float: left;
+	position: relative !important;
+	margin: 0;
+}
+
+div.user_stats div.count span {
+	float: left;
+	font-size:11px;
+	font-weight:normal;
+}
+
+div#placephotos {
+	display: none;
+}
+
+div.united_states {
+	text-align: center;
+}
+
+.min-width-320px #titlebar input{
+	width: 78% !important;
+}
+
+.min-width-480px #titlebar input{
+	width: 78% !important;
+}
+
+.ac_results li {
+	font-size:18px !important;
+	line-height:34px !important;
+}
+
+.ac_over {
+	background-color:#E98A15 !important;
+}
+
+#moredetailslink {
+	display: none;
+}
+
+#poidetailsdrop {
+	display: block !important;
+	font-size: 12px !important;
+}
+
+#poidetailsdrop a{
+	font-size: 12px !important;
+}
+
+.pagination .prev_page, .pagination .disabled {
+	display: none;
+}
+
+.refresh_map {
+    margin: 0;
+		border: 0;
+		position: fixed;
+    display: none;
+    z-index: 1;
+		width: 100%;
+}
+
+.enabled {
+	display: block !important;
+}
+
+div.sign_in, div.new_user, div.stamps_index, div.stamps_show, div.poi_new, div.inside {
+	margin: 20px 10px;
+}
+
+div.new div.ui-content {
+    padding-top: 20px;
+}
+
+div.yay {
+    background: url(/images/mobile/truck-18x18.png) no-repeat;
+    font-size: 14px;
+    padding-left: 20px;
+}
+
+a.add_it p{
+    float: left;
+}
+
+span#flash_notice {
+    display: none;
+}
+
+div.map_popup {
+    margin-top: -4px;
+    height: 66px;
+    overflow: hidden;
+}
+
+div.map_popup p.name {
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0;
+}
+
+div.detail_image {
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+
+div.show p {
+  margin: 0;
+  padding: 0;
+}
+
+#poidetails {
+  font-size: 10px;
+}
+
+div.reviews.new p, div.reviews.new div, div.reviews.create p, div.reviews.create div,
+div.reviews.edit p, div.reviews.edit div, div.reviews.update p, div.reviews.update div{
+  font-weight: bold;
+  text-align: center;
+}
+
+p.small_text {
+  font-weight: normal;
+  font-size: 10px;
+}
+
+input[type='checkbox']{
+  display: none;
+}
+
+html.landscape div.poi.index a.home{
+	display: none;
+}
+
+div.poi, div.activities{
+  background: url(/images/mobile/background/blue_tile_bg.jpg);
+}
+
+div.reviews.show{
+  background: -moz-linear-gradient(center top , #EEEEEE, #E5E5E5) repeat scroll 0 0 #E5E5E5 !important;
+}
+
+div.reviews.show li{
+    border: none !important;
+}
+
+
+div.bookmarks{
+  background: url(/images/mobile/background/green_tile_bg.jpg);
+}
+
+div.recents{
+  background: url(/images/mobile/background/orange_tile_bg.jpg);
+}
+
+div.stamps, div.reviews.new, div.sessions.new{
+  background: url(/images/mobile/background/purple_tile_bg.jpg);
+}
+
+div.photos.index {
+  background-color: black;
+}

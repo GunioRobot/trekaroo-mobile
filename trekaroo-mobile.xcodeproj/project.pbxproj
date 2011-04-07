@@ -14,6 +14,7 @@
 		201B604D1316B53A006FCD79 /* EngineDude.m in Sources */ = {isa = PBXBuildFile; fileRef = 201B604C1316B53A006FCD79 /* EngineDude.m */; };
 		2039A14912E8940C008DE35E /* PhotoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2039A14712E8940C008DE35E /* PhotoPreviewViewController.m */; };
 		2039A14A12E8940C008DE35E /* PhotoPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2039A14812E8940C008DE35E /* PhotoPreviewViewController.xib */; };
+		20F88CD0134D869F0019D261 /* next_page.html in Resources */ = {isa = PBXBuildFile; fileRef = 20F88CCF134D869F0019D261 /* next_page.html */; };
 		280E754D0DD40C5E005A515E /* FlipsideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280E754A0DD40C5E005A515E /* FlipsideView.xib */; };
 		280E754E0DD40C5E005A515E /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280E754B0DD40C5E005A515E /* MainView.xib */; };
 		280E754F0DD40C5E005A515E /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280E754C0DD40C5E005A515E /* MainWindow.xib */; };
@@ -42,6 +43,7 @@
 		2039A14612E8940C008DE35E /* PhotoPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoPreviewViewController.h; path = Classes/ViewControllers/PhotoPreviewViewController.h; sourceTree = "<group>"; };
 		2039A14712E8940C008DE35E /* PhotoPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoPreviewViewController.m; path = Classes/ViewControllers/PhotoPreviewViewController.m; sourceTree = "<group>"; };
 		2039A14812E8940C008DE35E /* PhotoPreviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PhotoPreviewViewController.xib; path = Classes/ViewControllers/PhotoPreviewViewController.xib; sourceTree = "<group>"; };
+		20F88CCF134D869F0019D261 /* next_page.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = next_page.html; path = "../../ios/trekaroo-mobile/Resources/localwebcache/next_page.html"; sourceTree = SOURCE_ROOT; };
 		280E754A0DD40C5E005A515E /* FlipsideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlipsideView.xib; sourceTree = "<group>"; };
 		280E754B0DD40C5E005A515E /* MainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		280E754C0DD40C5E005A515E /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				B4CCF93C134A3BF900C5F783 /* localwebcache */,
+				20F88CCF134D869F0019D261 /* next_page.html */,
 				B43641321344E60D009E8195 /* Helpers */,
 				201B60481316B4F8006FCD79 /* Models */,
 				2039A14312E893A7008DE35E /* View Controllers */,
@@ -270,6 +273,7 @@
 				B43641A91344F1A8009E8195 /* forwardPressed.png in Resources */,
 				B436421D13450282009E8195 /* treklogo.png in Resources */,
 				B4CCF93E134A3BF900C5F783 /* localwebcache in Resources */,
+				20F88CD0134D869F0019D261 /* next_page.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

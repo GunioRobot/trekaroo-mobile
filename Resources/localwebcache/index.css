@@ -1,0 +1,104 @@
+.logo {
+	width: 640px;
+	height: 170px;
+	background: url(logo.png)  0 0 no-repeat;
+}
+
+.stripes {
+	width: 640px;
+	height: 45px;
+	background: url(colorbar.png)  0 0 no-repeat;	
+}
+
+body {
+	margin: 0;	
+	width: 640px;
+}
+
+ul {
+	list-style-type:none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.vertical li {
+	text-align: center;	
+}	
+
+li#nearby {
+	width: 640px;
+	height: 117px;
+	background: url(button_nearby.png)  0 0 no-repeat;	
+}
+
+@-webkit-keyframes moveTarget {
+    0% {
+        top:0px;        
+    }
+    
+    100% { 
+        top:-100px;
+    }
+}
+
+li#nearby.touched {
+    -webkit-animation-name: moveTarget; 
+    -webkit-animation-duration: .5s; 
+    -webkit-animation-iteration-count: 1;
+}
+
+li#destination {
+	width: 640px;
+	height: 232px;
+	background: url(button_destination.png)  0 0 no-repeat;	
+}
+
+li#rate {
+	width: 640px;
+	height: 118px;
+	background: url(button_rate.png)  0 0 no-repeat;	
+}
+
+ul.horizontal {
+	height: 240px;
+}
+
+ul.horizontal li {
+	float: left;	
+}	
+
+li#non-mobile {
+	width: 210px;
+	height: 240px;
+	background: url(button_non-mobile.png)  0 0 no-repeat;	
+}
+
+li#passport {
+	width: 220px;
+	height: 240px;
+	background: url(button_passport.png)  0 0 no-repeat;	
+}
+
+li#feedback {
+	width: 210px;
+	height: 240px;
+	background: url(button_feedback.png)  0 0 no-repeat;	
+}
+
+div#curve {
+	position:absolute;
+	left:0px;
+	top:682px;
+	width: 640px;
+	height: 85px;
+	background: url(curve.png)  0 0 no-repeat;	
+}
+
+div#map {
+	position:absolute;
+	left:214px;
+	top:211px;
+	width: 430px;
+	height: 465px;
+	background: url(map.png)  0 0 no-repeat;	
+}

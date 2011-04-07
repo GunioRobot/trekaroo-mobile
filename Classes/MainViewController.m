@@ -52,6 +52,7 @@
 	[super viewDidLoad];
 	[EngineDude engineDude];
 	[webView setDelegate:self];
+	webView.scalesPageToFit = YES;
 #warning : Consider loading a local webpage
 	
 	NSString *path = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"localwebcache"] stringByAppendingPathComponent:@"index.html"];
