@@ -31,22 +31,6 @@ li#nearby {
 	background: url(button_nearby.png)  0 0 no-repeat;	
 }
 
-@-webkit-keyframes moveTarget {
-    0% {
-        top:0px;        
-    }
-    
-    100% { 
-        top:-100px;
-    }
-}
-
-li#nearby.touched {
-    -webkit-animation-name: moveTarget; 
-    -webkit-animation-duration: .5s; 
-    -webkit-animation-iteration-count: 1;
-}
-
 li#destination {
 	width: 640px;
 	height: 232px;
@@ -101,4 +85,20 @@ div#map {
 	width: 430px;
 	height: 465px;
 	background: url(map.png)  0 0 no-repeat;	
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to { 
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+div#map.rotate {
+    -webkit-animation-name:             rotate; 
+    -webkit-animation-duration:         0.5s; 
+    -webkit-animation-iteration-count:  infinite;
+    -webkit-transition-timing-function: linear;
 }

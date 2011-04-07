@@ -58,7 +58,7 @@
 }
 
 - (void)loadLocalHomePage {
-	NSString *path = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"localwebcache"] stringByAppendingPathComponent:@"index.html"];
+	NSString *path = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"localwebcache"] stringByAppendingPathComponent:TREKAROO_INDEX_FILE];
 	NSURL *url = [NSURL fileURLWithPath:path];
 	[webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
@@ -147,7 +147,7 @@
 	NSLog([[NSDate date] description]);
 	
 	BOOL shouldHide = [url isEqualToString:TREKAROO_MOBILE_URL] ||
-	([[request URL] isFileURL] && [[url lastPathComponent] isEqualToString:@"index.html"]);
+	([[request URL] isFileURL] && [[url lastPathComponent] isEqualToString:TREKAROO_INDEX_FILE]);
 	[self hideToolbar:shouldHide];
 //	NSString *s = [NSString stringWithContentsOfURL:[request URL]];
 //	NSLog(s);
