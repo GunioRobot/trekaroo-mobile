@@ -1,6 +1,7 @@
 $().ready( function(){
-	$("ul.vertical li#nearby").click( function(){
-		  window.location = $(this).find("a").attr('href');
-									 $(this).addClass('touched');
+	$("ul.vertical li").click( function(){
+							  var loc = $(this).find("a").attr('href');
+							  alert(loc);
+		  window.location = loc;
 	});
 });

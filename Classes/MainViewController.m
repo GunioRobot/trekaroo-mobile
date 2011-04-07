@@ -18,6 +18,17 @@
 	forwardItem.enabled  = [webView canGoForward];
 }
 
+- (void)hideToolbar:(BOOL)hide {
+	CGRect b = [self.view bounds];
+	CGRect tr = customToolBar.frame;
+	CGRect wr = hide ? b : CGRectMake(0.0,tr.size.height, b.size.width, b.size.height - tr.size.height);
+	tr.origin.y = hide ? -tr.size.height : 0.0;
+	[UIView beginAnimations:@"showhide" context:nil];
+	webView.frame = wr;
+	customToolBar.frame = tr;
+	[UIView commitAnimations];
+}
+
 - (void)goHome:(id)xender {
 	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:TREKAROO_MOBILE_URL]]];
 }
@@ -32,14 +43,15 @@
 	UIButton *b = [UIButton buttonWithType:UIButtonTypeCustom];
 	b.frame = CGRectMake(0.0,0.0, 160.0, 30.0);
 	[b addTarget:self action:@selector(goHome:) forControlEvents:UIControlEventTouchUpInside];
-	[b setImage:i forState:UIControlStateNormal];
+//	[b setImage:i forState:UIControlStateNormal];
 	b.showsTouchWhenHighlighted = YES;
 	b.backgroundColor = [UIColor clearColor];
 	b.opaque = NO;
 	
 	UIBarButtonItem *item = [[[UIBarButtonItem alloc] initWithCustomView:b] autorelease];
 	NSMutableArray *items = [NSMutableArray arrayWithArray:[customToolBar items]];
-	[items replaceObjectAtIndex:3 withObject:item];
+	[items insertObject:item atIndex:2];
+//	[items replaceObjectAtIndex:3 withObject:item];
 	[customToolBar setItems:items];
 	
 }
@@ -53,19 +65,17 @@
 	[EngineDude engineDude];
 	[webView setDelegate:self];
 	webView.scalesPageToFit = YES;
-#warning : Consider loading a local webpage
 	
 	NSString *path = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"localwebcache"] stringByAppendingPathComponent:@"index.html"];
 	NSURL *url = [NSURL fileURLWithPath:path];
 	[webView loadRequest:[NSURLRequest requestWithURL:url]];
-
-	NSLog([[NSDate date] description]);
+	[self hideToolbar:YES];
 	// direct to a poi for testing
 	//	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:3000/mobile/poi/filters?filter=Activity&lat=35.0914383&lng=-106.6040776#/mobile/activities/show/explora-childrens-museum-albuquerque-new-mexico?filter=Everything&lat=35.0914383&lng=-106.6040776"]]];
 	
 //	self.imgPicker = [[UIImagePickerController alloc] init];
 //	self.imgPicker.delegate = self;	
-	[self updateButtons];
+//	[self updateButtons];
 	[self insertCoolLogo];
 }
 
@@ -130,7 +140,10 @@
 	
 	NSLog(@"JSURL: %@",url);
 	NSLog([[NSDate date] description]);
-
+	
+	BOOL shouldHide = [url isEqualToString:TREKAROO_MOBILE_URL] ||
+	([[request URL] isFileURL] && [[url lastPathComponent] isEqualToString:@"index.html"]);
+	[self hideToolbar:shouldHide];
 //	NSString *s = [NSString stringWithContentsOfURL:[request URL]];
 //	NSLog(s);
 	
@@ -181,8 +194,8 @@
 - (void)reallyLoadFirstPage {
 	if (!_hasBeenLoaded) {
 		_hasBeenLoaded = YES;
-		NSLog([[NSDate date] description]);
-//		[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:TREKAROO_MOBILE_URL]]];
+		NSLog(TREKAROO_MOBILE_URL);
+		[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:TREKAROO_MOBILE_URL]]];
 	}
 }
 
@@ -196,7 +209,7 @@
 
 	NSString *jsCommand = @"Trekaroo.Mobile.setIOS();";
 	[self.webView stringByEvaluatingJavaScriptFromString:jsCommand];
-	[self updateButtons];
+//	[self updateButtons];
 }
 
 - (void) sendJSCommandToBrowser: (NSString*)command {
@@ -225,13 +238,10 @@
 }
 
 
-/*
-// Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	// Return YES for supported orientations.
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return YES;
 }
-*/
 
 
 - (void)dealloc {

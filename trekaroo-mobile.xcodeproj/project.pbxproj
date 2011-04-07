@@ -14,7 +14,6 @@
 		201B604D1316B53A006FCD79 /* EngineDude.m in Sources */ = {isa = PBXBuildFile; fileRef = 201B604C1316B53A006FCD79 /* EngineDude.m */; };
 		2039A14912E8940C008DE35E /* PhotoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2039A14712E8940C008DE35E /* PhotoPreviewViewController.m */; };
 		2039A14A12E8940C008DE35E /* PhotoPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2039A14812E8940C008DE35E /* PhotoPreviewViewController.xib */; };
-		20F88CD0134D869F0019D261 /* next_page.html in Resources */ = {isa = PBXBuildFile; fileRef = 20F88CCF134D869F0019D261 /* next_page.html */; };
 		280E754D0DD40C5E005A515E /* FlipsideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280E754A0DD40C5E005A515E /* FlipsideView.xib */; };
 		280E754E0DD40C5E005A515E /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280E754B0DD40C5E005A515E /* MainView.xib */; };
 		280E754F0DD40C5E005A515E /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280E754C0DD40C5E005A515E /* MainWindow.xib */; };
@@ -29,6 +28,9 @@
 		B43641A91344F1A8009E8195 /* forwardPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = B43641A51344F1A8009E8195 /* forwardPressed.png */; };
 		B436421D13450282009E8195 /* treklogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B436421C13450282009E8195 /* treklogo.png */; };
 		B436434A13452E55009E8195 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B436434913452E55009E8195 /* NSString+URLEncoding.m */; };
+		B4A20496134E03E2006CCC3D /* CustomToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A20495134E03E2006CCC3D /* CustomToolBar.m */; };
+		B4A204BF134E05B2006CCC3D /* toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A204BD134E05B2006CCC3D /* toolbar.png */; };
+		B4A204C0134E05B2006CCC3D /* toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A204BE134E05B2006CCC3D /* toolbar@2x.png */; };
 		B4CCF93E134A3BF900C5F783 /* localwebcache in Resources */ = {isa = PBXBuildFile; fileRef = B4CCF93C134A3BF900C5F783 /* localwebcache */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +45,6 @@
 		2039A14612E8940C008DE35E /* PhotoPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoPreviewViewController.h; path = Classes/ViewControllers/PhotoPreviewViewController.h; sourceTree = "<group>"; };
 		2039A14712E8940C008DE35E /* PhotoPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoPreviewViewController.m; path = Classes/ViewControllers/PhotoPreviewViewController.m; sourceTree = "<group>"; };
 		2039A14812E8940C008DE35E /* PhotoPreviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PhotoPreviewViewController.xib; path = Classes/ViewControllers/PhotoPreviewViewController.xib; sourceTree = "<group>"; };
-		20F88CCF134D869F0019D261 /* next_page.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = next_page.html; path = "../../ios/trekaroo-mobile/Resources/localwebcache/next_page.html"; sourceTree = SOURCE_ROOT; };
 		280E754A0DD40C5E005A515E /* FlipsideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlipsideView.xib; sourceTree = "<group>"; };
 		280E754B0DD40C5E005A515E /* MainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		280E754C0DD40C5E005A515E /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -66,6 +67,10 @@
 		B436421C13450282009E8195 /* treklogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = treklogo.png; path = images/treklogo.png; sourceTree = "<group>"; };
 		B436434813452E55009E8195 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncoding.h"; path = "Classes/Helpers/NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		B436434913452E55009E8195 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+URLEncoding.m"; path = "Classes/Helpers/NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		B4A20494134E03E2006CCC3D /* CustomToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomToolBar.h; path = Classes/Helpers/CustomToolBar.h; sourceTree = "<group>"; };
+		B4A20495134E03E2006CCC3D /* CustomToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomToolBar.m; path = Classes/Helpers/CustomToolBar.m; sourceTree = "<group>"; };
+		B4A204BD134E05B2006CCC3D /* toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = toolbar.png; path = images/toolbar.png; sourceTree = "<group>"; };
+		B4A204BE134E05B2006CCC3D /* toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar@2x.png"; path = "images/toolbar@2x.png"; sourceTree = "<group>"; };
 		B4CCF93C134A3BF900C5F783 /* localwebcache */ = {isa = PBXFileReference; lastKnownFileType = folder; name = localwebcache; path = Resources/localwebcache; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				B4CCF93C134A3BF900C5F783 /* localwebcache */,
-				20F88CCF134D869F0019D261 /* next_page.html */,
 				B43641321344E60D009E8195 /* Helpers */,
 				201B60481316B4F8006FCD79 /* Models */,
 				2039A14312E893A7008DE35E /* View Controllers */,
@@ -197,6 +201,8 @@
 				B43641451344EC2B009E8195 /* TKHTTPURLConnection.m */,
 				B436434813452E55009E8195 /* NSString+URLEncoding.h */,
 				B436434913452E55009E8195 /* NSString+URLEncoding.m */,
+				B4A20494134E03E2006CCC3D /* CustomToolBar.h */,
+				B4A20495134E03E2006CCC3D /* CustomToolBar.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -204,6 +210,8 @@
 		B436419F1344F199009E8195 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B4A204BD134E05B2006CCC3D /* toolbar.png */,
+				B4A204BE134E05B2006CCC3D /* toolbar@2x.png */,
 				B436421C13450282009E8195 /* treklogo.png */,
 				B43641A21344F1A8009E8195 /* back.png */,
 				B43641A31344F1A8009E8195 /* backPressed.png */,
@@ -273,7 +281,8 @@
 				B43641A91344F1A8009E8195 /* forwardPressed.png in Resources */,
 				B436421D13450282009E8195 /* treklogo.png in Resources */,
 				B4CCF93E134A3BF900C5F783 /* localwebcache in Resources */,
-				20F88CD0134D869F0019D261 /* next_page.html in Resources */,
+				B4A204BF134E05B2006CCC3D /* toolbar.png in Resources */,
+				B4A204C0134E05B2006CCC3D /* toolbar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +302,7 @@
 				B43641371344E694009E8195 /* NSString+UUID.m in Sources */,
 				B43641461344EC2B009E8195 /* TKHTTPURLConnection.m in Sources */,
 				B436434A13452E55009E8195 /* NSString+URLEncoding.m in Sources */,
+				B4A20496134E03E2006CCC3D /* CustomToolBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +335,61 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+		};
+		B4A20577134E1E0B006CCC3D /* DISTRIBUTION */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.1;
+			};
+			name = DISTRIBUTION;
+		};
+		B4A20578134E1E0B006CCC3D /* DISTRIBUTION */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = trekaroo_mobile_Prefix.pch;
+				INFOPLIST_FILE = "trekaroo_mobile-Info.plist";
+				PRODUCT_NAME = "trekaroo-mobile";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = DISTRIBUTION;
+		};
+		B4A20579134E1E16006CCC3D /* ADHOC */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stone Design Corp";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CF5D224E-E24E-4F04-8905-030CE3F3E62B";
+				SDKROOT = iphoneos;
+			};
+			name = ADHOC;
+		};
+		B4A2057A134E1E16006CCC3D /* ADHOC */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = trekaroo_mobile_Prefix.pch;
+				INFOPLIST_FILE = "trekaroo_mobile-Info.plist";
+				PRODUCT_NAME = "trekaroo-mobile";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = ADHOC;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -361,6 +426,8 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				B4A2057A134E1E16006CCC3D /* ADHOC */,
+				B4A20578134E1E0B006CCC3D /* DISTRIBUTION */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -370,6 +437,8 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				B4A20579134E1E16006CCC3D /* ADHOC */,
+				B4A20577134E1E0B006CCC3D /* DISTRIBUTION */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

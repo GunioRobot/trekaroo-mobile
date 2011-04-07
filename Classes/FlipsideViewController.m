@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor viewFlipsideBackgroundColor];    
-	[self insertCoolLogo];
+//	[self insertCoolLogo];
 	
 }
 

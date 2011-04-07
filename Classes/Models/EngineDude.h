@@ -25,8 +25,8 @@
 @end
 
 #warning For Production, simply comment out this next IS_STAGING AND IS_DEV
-//#define IS_STAGING 1
-#define IS_DEV 1
+#define IS_STAGING 1
+//#define IS_DEV 1
 
 #define DEV_URL @"http://localhost:3000/mobile"
 #define DEV_HOST @"http://localhost:3000"
