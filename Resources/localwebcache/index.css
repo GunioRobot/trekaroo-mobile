@@ -25,6 +25,10 @@ ul.vertical li {
 	text-align: center;	
 }	
 
+li.pressed {
+	background-position: 0 100%, 100% 50% !important;
+}
+
 li#nearby {
 	width: 640px;
 	height: 117px;
@@ -34,7 +38,7 @@ li#nearby {
 li#destination {
 	width: 640px;
 	height: 232px;
-	background: url(button_destination.png)  0 0 no-repeat;	
+	background: url(button_destination.png)  0 0 no-repeat;
 }
 
 li#rate {
@@ -78,7 +82,7 @@ div#curve {
 	background: url(curve.png)  0 0 no-repeat;	
 }
 
-div#map {
+div#map_image {
 	position:absolute;
 	left:214px;
 	top:211px;
