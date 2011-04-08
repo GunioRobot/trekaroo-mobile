@@ -24,7 +24,13 @@ ul {
 ul.vertical li {
 	width: 642px;
 	text-align: center;	
-}	
+}
+
+ul.vertical  div.overlay{
+  position:absolute;
+  width: 642px;
+  z-index: 100;
+}
 
 li.pressed {
 	background-position: 0 100%, 100% 50% !important;
@@ -32,7 +38,12 @@ li.pressed {
 
 li#nearby {
 	height: 117px;
-	background: url(button_nearby.png)  0 0 no-repeat;	
+	background: url(button_nearby.png)  0 0 no-repeat;
+}
+
+li#nearby div.overlay{
+  top: 215px;
+  height: 117px;
 }
 
 li#destination {
@@ -40,9 +51,19 @@ li#destination {
 	background: url(button_destination.png)  0 0 no-repeat;
 }
 
+li#destination div.overlay{
+  top: 332px;
+  height: 232px;
+}
+
 li#rate {
 	height: 118px;
 	background: url(button_rate.png)  0 0 no-repeat;	
+}
+
+li#rate div.overlay{
+  top: 565px;
+  height: 118px;
 }
 
 ul.horizontal, ul.horizontal li {
