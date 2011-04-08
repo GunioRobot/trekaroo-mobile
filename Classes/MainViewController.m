@@ -154,7 +154,6 @@
 	NSString *url = [[request URL] absoluteString];
 	
 	NSLog(@"JSURL: %@",url);
-	
 //	BOOL shouldHide = [url isEqualToString:TREKAROO_MOBILE_URL] ||
 //	([[request URL] isFileURL] && [[url lastPathComponent] isEqualToString:@TREKAROO_INDEX_FILE]);
 //	[self hideToolbar:shouldHide];
@@ -187,6 +186,14 @@
 		self.photoPostOptions = [[EngineDude engineDude] keysAndValuePairsFromURLString:url];
 		[self startCameraPickerFromViewController:self usingDelegate:self source:UIImagePickerControllerSourceTypeCamera];
 	}
+	else if([cmd compare:@"networkIndicateYes"] == NSOrderedSame){
+		UIApplication* app = [UIApplication sharedApplication];
+		app.networkActivityIndicatorVisible = YES;
+	}	
+	else if([cmd compare:@"networkIndicateNo"] == NSOrderedSame){
+		UIApplication* app = [UIApplication sharedApplication];
+		app.networkActivityIndicatorVisible = NO;
+	}		
 	else if([cmd compare:@"gotoExternalUrl"] == NSOrderedSame){
 		NSString *urlText = [[paramsToPass objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
 			NSLog(@"gotoExternalUrl: %@",urlText);
@@ -230,7 +237,6 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-	
 	if (!_hasBeenLoaded) [self reallyLoadFirstPage];
 
 	NSString *jsCommand = @"Trekaroo.Mobile.setIOS();";
