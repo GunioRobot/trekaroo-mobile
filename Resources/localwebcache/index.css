@@ -1,18 +1,18 @@
 .logo {
-	width: 640px;
+	width: 642px;
 	height: 170px;
 	background: url(logo.png)  0 0 no-repeat;
 }
 
 .stripes {
-	width: 640px;
+	width: 642px;
 	height: 45px;
 	background: url(colorbar.png)  0 0 no-repeat;	
 }
 
 body {
 	margin: 0;	
-	width: 640px;
+	width: 642px;
 }
 
 ul {
@@ -22,6 +22,7 @@ ul {
 }
 
 ul.vertical li {
+	width: 642px;
 	text-align: center;	
 }	
 
@@ -30,24 +31,21 @@ li.pressed {
 }
 
 li#nearby {
-	width: 640px;
 	height: 117px;
 	background: url(button_nearby.png)  0 0 no-repeat;	
 }
 
 li#destination {
-	width: 640px;
 	height: 232px;
 	background: url(button_destination.png)  0 0 no-repeat;
 }
 
 li#rate {
-	width: 640px;
 	height: 118px;
 	background: url(button_rate.png)  0 0 no-repeat;	
 }
 
-ul.horizontal {
+ul.horizontal, ul.horizontal li {
 	height: 240px;
 }
 
@@ -57,19 +55,16 @@ ul.horizontal li {
 
 li#non-mobile {
 	width: 210px;
-	height: 240px;
 	background: url(button_non-mobile.png)  0 0 no-repeat;	
 }
 
 li#passport {
 	width: 220px;
-	height: 240px;
 	background: url(button_passport.png)  0 0 no-repeat;	
 }
 
 li#feedback {
 	width: 210px;
-	height: 240px;
 	background: url(button_feedback.png)  0 0 no-repeat;	
 }
 
@@ -77,7 +72,7 @@ div#curve {
 	position:absolute;
 	left:0px;
 	top:682px;
-	width: 640px;
+	width: 642px;
 	height: 85px;
 	background: url(curve.png)  0 0 no-repeat;	
 }
