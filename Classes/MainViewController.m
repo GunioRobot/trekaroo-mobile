@@ -146,9 +146,9 @@
 	NSLog(@"JSURL: %@",url);
 	NSLog([[NSDate date] description]);
 	
-	BOOL shouldHide = [url isEqualToString:TREKAROO_MOBILE_URL] ||
-	([[request URL] isFileURL] && [[url lastPathComponent] isEqualToString:TREKAROO_INDEX_FILE]);
-	[self hideToolbar:shouldHide];
+//	BOOL shouldHide = [url isEqualToString:TREKAROO_MOBILE_URL] ||
+//	([[request URL] isFileURL] && [[url lastPathComponent] isEqualToString:@TREKAROO_INDEX_FILE]);
+//	[self hideToolbar:shouldHide];
 //	NSString *s = [NSString stringWithContentsOfURL:[request URL]];
 //	NSLog(s);
 	
@@ -196,9 +196,16 @@
 	}
 }
 
+- (void)avoidFlashLater {
+	//		[UIView beginAnimations:nil context:NULL];
+	webView.alpha = 1.0;
+	//		[UIView commitAnimations];
+}
+
 - (void)reallyLoadFirstPage {
 	if (!_hasBeenLoaded) {
 		_hasBeenLoaded = YES;
+		[self performSelector:@selector(avoidFlashLater) withObject:nil afterDelay:0.4];
 //		NSLog(TREKAROO_MOBILE_URL);
 //		[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:TREKAROO_MOBILE_URL]]];
 	}

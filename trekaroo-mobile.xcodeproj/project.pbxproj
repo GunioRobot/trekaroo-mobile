@@ -33,6 +33,10 @@
 		B4A204C0134E05B2006CCC3D /* toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A204BE134E05B2006CCC3D /* toolbar@2x.png */; };
 		B4A20637134E5E0C006CCC3D /* deleteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A20635134E5E0C006CCC3D /* deleteButton.png */; };
 		B4A20638134E5E0C006CCC3D /* deleteButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A20636134E5E0C006CCC3D /* deleteButtonPressed.png */; };
+		B4A20673134E683B006CCC3D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A20671134E683B006CCC3D /* Default.png */; };
+		B4A20674134E683B006CCC3D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A20672134E683B006CCC3D /* Default@2x.png */; };
+		B4A20677134E689D006CCC3D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A20675134E689D006CCC3D /* icon.png */; };
+		B4A20678134E689D006CCC3D /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A20676134E689D006CCC3D /* icon@2x.png */; };
 		B4CCF93E134A3BF900C5F783 /* localwebcache in Resources */ = {isa = PBXBuildFile; fileRef = B4CCF93C134A3BF900C5F783 /* localwebcache */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +44,7 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* trekaroo_mobileAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trekaroo_mobileAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* trekaroo_mobileAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = trekaroo_mobileAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* trekaroo-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "trekaroo-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* Trekaroo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trekaroo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		201B604B1316B53A006FCD79 /* EngineDude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineDude.h; path = Classes/Models/EngineDude.h; sourceTree = "<group>"; };
 		201B604C1316B53A006FCD79 /* EngineDude.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EngineDude.m; path = Classes/Models/EngineDude.m; sourceTree = "<group>"; };
@@ -75,6 +79,10 @@
 		B4A204BE134E05B2006CCC3D /* toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar@2x.png"; path = "images/toolbar@2x.png"; sourceTree = "<group>"; };
 		B4A20635134E5E0C006CCC3D /* deleteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deleteButton.png; path = images/deleteButton.png; sourceTree = "<group>"; };
 		B4A20636134E5E0C006CCC3D /* deleteButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deleteButtonPressed.png; path = images/deleteButtonPressed.png; sourceTree = "<group>"; };
+		B4A20671134E683B006CCC3D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = images/Default.png; sourceTree = "<group>"; };
+		B4A20672134E683B006CCC3D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "images/Default@2x.png"; sourceTree = "<group>"; };
+		B4A20675134E689D006CCC3D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = images/icon.png; sourceTree = "<group>"; };
+		B4A20676134E689D006CCC3D /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "images/icon@2x.png"; sourceTree = "<group>"; };
 		B4CCF93C134A3BF900C5F783 /* localwebcache */ = {isa = PBXFileReference; lastKnownFileType = folder; name = localwebcache; path = Resources/localwebcache; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,7 +113,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* trekaroo-mobile.app */,
+				1D6058910D05DD3D006BFB54 /* Trekaroo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,6 +158,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				8D1107310486CEB800E47090 /* trekaroo_mobile-Info.plist */,
 				B4CCF93C134A3BF900C5F783 /* localwebcache */,
 				B43641321344E60D009E8195 /* Helpers */,
 				201B60481316B4F8006FCD79 /* Models */,
@@ -178,10 +187,13 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B4A20675134E689D006CCC3D /* icon.png */,
+				B4A20676134E689D006CCC3D /* icon@2x.png */,
+				B4A20671134E683B006CCC3D /* Default.png */,
+				B4A20672134E683B006CCC3D /* Default@2x.png */,
 				280E754A0DD40C5E005A515E /* FlipsideView.xib */,
 				280E754B0DD40C5E005A515E /* MainView.xib */,
 				280E754C0DD40C5E005A515E /* MainWindow.xib */,
-				8D1107310486CEB800E47090 /* trekaroo_mobile-Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -230,9 +242,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* trekaroo-mobile */ = {
+		1D6058900D05DD3D006BFB54 /* Trekaroo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "trekaroo-mobile" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Trekaroo" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -242,9 +254,9 @@
 			);
 			dependencies = (
 			);
-			name = "trekaroo-mobile";
+			name = Trekaroo;
 			productName = "trekaroo-mobile";
-			productReference = 1D6058910D05DD3D006BFB54 /* trekaroo-mobile.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* Trekaroo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -267,7 +279,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* trekaroo-mobile */,
+				1D6058900D05DD3D006BFB54 /* Trekaroo */,
 			);
 		};
 /* End PBXProject section */
@@ -291,6 +303,10 @@
 				B4A204C0134E05B2006CCC3D /* toolbar@2x.png in Resources */,
 				B4A20637134E5E0C006CCC3D /* deleteButton.png in Resources */,
 				B4A20638134E5E0C006CCC3D /* deleteButtonPressed.png in Resources */,
+				B4A20673134E683B006CCC3D /* Default.png in Resources */,
+				B4A20674134E683B006CCC3D /* Default@2x.png in Resources */,
+				B4A20677134E689D006CCC3D /* icon.png in Resources */,
+				B4A20678134E689D006CCC3D /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +343,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = trekaroo_mobile_Prefix.pch;
 				INFOPLIST_FILE = "trekaroo_mobile-Info.plist";
-				PRODUCT_NAME = "trekaroo-mobile";
+				PRODUCT_NAME = Trekaroo;
 			};
 			name = Debug;
 		};
@@ -339,7 +355,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = trekaroo_mobile_Prefix.pch;
 				INFOPLIST_FILE = "trekaroo_mobile-Info.plist";
-				PRODUCT_NAME = "trekaroo-mobile";
+				PRODUCT_NAME = Trekaroo;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -366,7 +382,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = trekaroo_mobile_Prefix.pch;
 				INFOPLIST_FILE = "trekaroo_mobile-Info.plist";
-				PRODUCT_NAME = "trekaroo-mobile";
+				PRODUCT_NAME = Trekaroo;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = DISTRIBUTION;
@@ -394,7 +410,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = trekaroo_mobile_Prefix.pch;
 				INFOPLIST_FILE = "trekaroo_mobile-Info.plist";
-				PRODUCT_NAME = "trekaroo-mobile";
+				PRODUCT_NAME = Trekaroo;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = ADHOC;
@@ -429,7 +445,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "trekaroo-mobile" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Trekaroo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
