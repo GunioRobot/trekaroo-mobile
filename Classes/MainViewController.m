@@ -187,6 +187,11 @@
 		self.photoPostOptions = [[EngineDude engineDude] keysAndValuePairsFromURLString:url];
 		[self startCameraPickerFromViewController:self usingDelegate:self source:UIImagePickerControllerSourceTypeCamera];
 	}
+	else if([cmd compare:@"gotoExternalUrl"] == NSOrderedSame){
+		NSString *urlText = [[paramsToPass objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+			NSLog(@"gotoExternalUrl: %@",urlText);
+		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlText]];
+	}	
 	else if([cmd compare:@"logMessage"] == NSOrderedSame){
 		
 		NSString *message = [[paramsToPass objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
