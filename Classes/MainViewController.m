@@ -218,9 +218,9 @@
 }
 
 - (void)avoidFlashLater {
-	//		[UIView beginAnimations:nil context:NULL];
+//	[UIView beginAnimations:nil context:NULL];
 	webView.alpha = 1.0;
-	//		[UIView commitAnimations];
+//	[UIView commitAnimations];
 }
 
 - (void)reallyLoadFirstPage {
