@@ -10,6 +10,14 @@
 #import	"PhotoPreviewViewController.h"
 #import "EngineDude.h"
 
+#if defined(DEBUG)
+@interface NSURLRequest(extraspecial)
++ (void)setAllowsAnyHTTPSCertificate:(BOOL)allow forHost:(NSString *)host;
+@end
+
+
+#endif
+
 @implementation MainViewController
 @synthesize webView, backItem, forwardItem, customToolBar, photoPostOptions;
 
@@ -35,7 +43,7 @@
 }
 
 - (void)insertCoolLogo {
-	UIImage *i = [UIImage imageNamed:@"treklogo"];
+//	UIImage *i = [UIImage imageNamed:@"treklogo"];
 //	UIImageView *iv = [[[UIImageView alloc] initWithFrame:CGRectMake(0.0,0.0, 160.0, 30.0)] autorelease];
 //	iv.contentMode = UIViewContentModeScaleAspectFit;
 //	iv.backgroundColor = [UIColor clearColor];
@@ -65,9 +73,11 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-#warning REMOVE THIS LINE BEFORE SUBMITTING!
+// this code can only be used in debug builds:
+#if defined(DEBUG)
 	[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"stg2.trekaroo.com"];
-
+#endif
+	
 	[super viewDidLoad];
 	[EngineDude engineDude];
 	[webView setDelegate:self];
@@ -144,7 +154,6 @@
 	NSString *url = [[request URL] absoluteString];
 	
 	NSLog(@"JSURL: %@",url);
-	NSLog([[NSDate date] description]);
 	
 //	BOOL shouldHide = [url isEqualToString:TREKAROO_MOBILE_URL] ||
 //	([[request URL] isFileURL] && [[url lastPathComponent] isEqualToString:@TREKAROO_INDEX_FILE]);
@@ -160,7 +169,7 @@
 		NSArray *urlParamsArray = [paramsString componentsSeparatedByString:@"&"];
 		cmd = [[[urlParamsArray objectAtIndex:0] componentsSeparatedByString:@"="] objectAtIndex:1];
 		int numCommands = [urlParamsArray count];
-		paramsToPass = [[NSMutableArray alloc] initWithCapacity:numCommands-1];
+		paramsToPass = [NSMutableArray arrayWithCapacity:numCommands-1];
 		for(int i = 1; i < numCommands; i++){
 			NSString *aParam = [[[urlParamsArray objectAtIndex:i] componentsSeparatedByString:@"="] objectAtIndex:1];
 			
