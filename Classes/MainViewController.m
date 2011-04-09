@@ -74,9 +74,10 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 // this code can only be used in debug builds:
-#if defined(DEBUG)
+#warning THIS MAY NOT GO INTO APPSTORE ONE
+//#if defined(DEBUG)
 	[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"stg2.trekaroo.com"];
-#endif
+//#endif
 	
 	[super viewDidLoad];
 	[EngineDude engineDude];

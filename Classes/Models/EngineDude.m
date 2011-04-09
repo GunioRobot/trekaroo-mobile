@@ -191,7 +191,7 @@
 
 //	[_delegate responseHeadersReceived:[resp allHeaderFields]];
 	
-    if (1) {
+    if (0) {
         // Display headers for debugging.
         NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
         NSLog(@"(%d) [%@]:%@", 
