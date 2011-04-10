@@ -75,8 +75,12 @@ ul.horizontal li {
 }	
 
 li#non-mobile {
-	width: 210px;
+	width: 211px;
 	background: url(button_non-mobile.png)  0 0 no-repeat;	
+}
+
+li#non-mobile.pressed {
+	background: url(button_non-mobile_press.png)  0 0 no-repeat;
 }
 
 li#passport {
@@ -84,9 +88,17 @@ li#passport {
 	background: url(button_passport.png)  0 0 no-repeat;	
 }
 
+li#passport.pressed {
+	background: url(button_passport_press.png)  0 0 no-repeat;
+}
+
 li#feedback {
-	width: 210px;
+	width: 211px;
 	background: url(button_feedback.png)  0 0 no-repeat;	
+}
+
+li#feedback.pressed {
+	background: url(button_feedback_press.png)  0 0 no-repeat;
 }
 
 div#curve {
