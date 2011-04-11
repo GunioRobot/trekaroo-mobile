@@ -305,7 +305,8 @@
 		[v show];
 		[v release];
 	} else {
-		[webView stringByEvaluatingJavaScriptFromString:@"photoUploadFailed();"];
+		[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"photoUploadFailed(%d);",[identifier intValue]]];
+		NSLog([error localizedDescription]);
 	}
 }
 

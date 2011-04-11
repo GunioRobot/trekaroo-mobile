@@ -143,7 +143,7 @@
 		int statusCode = [response statusCode];
 
 		if (error || statusCode != 200) {
-			[_delegate requestFailed:nil withError:error];
+			[_delegate requestFailed:[NSString stringWithFormat:@"%d",statusCode] withError:error];
 		} else {
 			[_delegate requestSucceeded:nil];
 		}
