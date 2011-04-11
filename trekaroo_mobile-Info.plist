@@ -8,8 +8,15 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFile</key>
+	<string>icon.png</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>icon@2x.png</string>
+		<string>icon.png</string>
+	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.yourcompany.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.stone.trekaroo</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -28,12 +35,5 @@
 	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleOpaqueBlack</string>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>icon@2x.png</string>
-		<string>icon.png</string>
-	</array>
-	<key>CFBundleIconFile</key>
-	<string>icon.png</string>
 </dict>
 </plist>
