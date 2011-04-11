@@ -131,19 +131,36 @@
 	[theRequest addValue:[NSString stringWithFormat:@"%d",[multiPartData length]] forHTTPHeaderField: @"Content-Length"];
 	[theRequest setHTTPBody:multiPartData];   
 	
-	
-	TKHTTPURLConnection *connection;
-    connection = [[TKHTTPURLConnection alloc] initWithRequest:theRequest delegate:self];
+	if (1) {
+		NSError *error = nil;
+		NSData *searchData;
+		NSHTTPURLResponse *response;
+		searchData = [ NSURLConnection sendSynchronousRequest:theRequest returningResponse:&response error:&error];
+		NSLog([[response allHeaderFields] description]);
+		
+		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 
-    if (!connection) {
-        return nil;
-    } else {
-        [_connections setObject:connection forKey:[connection identifier]];
-        [connection release];
-    }
-    
-    return [connection identifier];
-	
+		int statusCode = [response statusCode];
+
+		if (error || statusCode != 200) {
+			[_delegate requestFailed:nil withError:error];
+		} else {
+			[_delegate requestSucceeded:nil];
+		}
+	    return [NSString stringWithFormat:@"%d",statusCode];
+	} else {
+		TKHTTPURLConnection *connection;
+		connection = [[TKHTTPURLConnection alloc] initWithRequest:theRequest delegate:self];
+
+		if (!connection) {
+			return nil;
+		} else {
+			[_connections setObject:connection forKey:[connection identifier]];
+			[connection release];
+		}
+		
+		return [connection identifier];
+	}
 	
 }
 
@@ -177,7 +194,6 @@
         // Destroy the connection.
         [connection cancel];
         [_connections removeObjectForKey:[connection identifier]];
-        
     } else if (statusCode == 200) {
         // Not modified, or generic success.
         [_delegate requestSucceeded:[connection identifier]];

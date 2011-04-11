@@ -284,20 +284,42 @@
     [super dealloc];
 }
 
+#define REQUEST_FAIL_TAG 55
+#define REQUEST_SUCCEED_TAG 56
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex;  // after animation 
+{
+	if (alertView.tag == REQUEST_FAIL_TAG) {
+		
+	} else if (alertView.tag == REQUEST_SUCCEED_TAG) {
+		
+	}
+}
+
 - (void)requestFailed:(NSString *)identifier withError:(NSError *)error {
-	UIAlertView *v = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Photo Upload",@"") message:NSLocalizedString(@"Could not upload photo at this this. Please try later.",@"")
-											   delegate:self cancelButtonTitle:NSLocalizedString(@"OK",@"") otherButtonTitles:nil];
-	
-	[v show];
-	[v release];
+	if (0) {
+		UIAlertView *v = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Photo Upload",@"") message:NSLocalizedString(@"Could not upload photo at this this. Please try later.",@"")
+												   delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK",@""),nil];
+		
+		v.tag = REQUEST_FAIL_TAG;
+		[v show];
+		[v release];
+	} else {
+		[webView stringByEvaluatingJavaScriptFromString:@"photoUploadFailed();"];
+	}
 }
 
 - (void)requestSucceeded:(NSString *)identifier {
-	UIAlertView *v = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Photo Uploaded",@"") message:NSLocalizedString(@"Thank you.",@"")
-											   delegate:self cancelButtonTitle:NSLocalizedString(@"OK",@"") otherButtonTitles:nil];
-	
-	[v show];
-	[v release];
+	if (0) {
+		UIAlertView *v = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Photo Uploaded",@"") message:NSLocalizedString(@"Thank you.",@"")
+												   delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK",@""),nil];
+		
+		v.tag = REQUEST_SUCCEED_TAG;
+		[webView reload];
+		[v show];
+		[v release];
+	} else
+		[webView stringByEvaluatingJavaScriptFromString:@"photoUploadSucceeded();"];
 	// think about this: [webView reload];
 }
 
