@@ -36,9 +36,18 @@
 	[(MainViewController *)[self parentViewController] sendJSCommandToBrowser:@"alert(\'dialog closed\');"];	
 }
 
-- (IBAction)sendPhotoAction:(id)sender {
+- (void)nowSendPhoto {
 	[[EngineDude engineDude] uploadImage:(UIImage *)uiImage withCaption:(NSString *)captionField.text andOptions:photoOptions];
 	[[self parentViewController] dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)sendPhotoAction:(id)sender {
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+	// must be asynch to line above!
+	[self performSelector:@selector(nowSendPhoto) withObject:nil afterDelay:0.0];
+	
+//	[[EngineDude engineDude] uploadImage:(UIImage *)uiImage withCaption:(NSString *)captionField.text andOptions:photoOptions];
+//	[[self parentViewController] dismissModalViewControllerAnimated:YES];
 }
 
 
