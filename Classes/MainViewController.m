@@ -189,11 +189,11 @@
 	}
 	else if([cmd compare:@"networkIndicateYes"] == NSOrderedSame){
 		UIApplication* app = [UIApplication sharedApplication];
-		app.networkActivityIndicatorVisible = YES;
+//		app.networkActivityIndicatorVisible = YES;
 	}	
 	else if([cmd compare:@"networkIndicateNo"] == NSOrderedSame){
 		UIApplication* app = [UIApplication sharedApplication];
-		app.networkActivityIndicatorVisible = NO;
+//		app.networkActivityIndicatorVisible = NO;
 	}		
 	else if([cmd compare:@"gotoExternalUrl"] == NSOrderedSame){
 		NSString *urlText = [[paramsToPass objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
@@ -214,6 +214,8 @@
 		return NO;
 	}
 	else{
+		UIApplication.sharedApplication.networkActivityIndicatorVisible = YES;	
+		NSLog(@"turning it ON");
 		return YES;
 	}
 }
@@ -235,12 +237,18 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
 	if (!_hasBeenLoaded) [self reallyLoadFirstPage];
+	UIApplication.sharedApplication.networkActivityIndicatorVisible = NO;	
+	NSLog(@"turning it OFF");
+
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+	UIApplication.sharedApplication.networkActivityIndicatorVisible = NO;	
+	NSLog(@"turning it OFF");
+
 	if (!_hasBeenLoaded) [self reallyLoadFirstPage];
 
-	NSString *jsCommand = @"Trekaroo.Mobile.setIOS();";
+	NSString *jsCommand = @"setIOSMobileApp();";
 	[self.webView stringByEvaluatingJavaScriptFromString:jsCommand];
 //	[self updateButtons];
 }

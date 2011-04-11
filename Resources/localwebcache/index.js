@@ -1,9 +1,14 @@
-var isIOSMobileApp = false;
-Trekaroo = {};
-Trekaroo.Mobile = {};
-Trekaroo.Mobile.setIOS = function(){
-	isIOSMobileApp = true;
-	Trekaroo.Mobile.initialize();
+var _iosMobileApp = 'unknown';
+
+setIOSMobileApp = function(){
+  Cookie.set('isIOSMobileApp', 'true');
+};
+
+isIOSMobileApp = function() {
+  if( _iosMobileApp == 'unknown' ){
+     _iosMobileApp = Cookie.get('isIOSMobileApp');
+  }
+  return _iosMobileApp;
 };
 
 iosSendCommand = function( cmd, msg ){
@@ -11,6 +16,10 @@ iosSendCommand = function( cmd, msg ){
 };
 
 $().ready( function(){
+  $(window).bind("unload", function(){
+    $("div.remote_control ul li").removeClass('pressed');
+  });
+
   $("div.remote_control ul.vertical li").each(function(i){
     $(this).append('<div class="overlay"></div>');
   });
@@ -21,7 +30,7 @@ $().ready( function(){
 	});
 		  
 	$("li#non-mobile, li#feedback").click( function(e){
-		if( isIOSMobileApp ){
+		if( isIOSMobileApp() ){
 			e.preventDefault();
 			iosSendCommand("gotoExternalUrl", escape($(this).find('a').attr('href')));
 			return false;
