@@ -71,6 +71,14 @@
 	[webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
+- (void)loadLocalOutToLunchPage {
+#define TREKAROO_ERROR_500_FILE @"500_error.html"
+	
+	NSString *path = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"localwebcache"] stringByAppendingPathComponent:TREKAROO_ERROR_500_FILE];
+	NSURL *url = [NSURL fileURLWithPath:path];
+	[webView loadRequest:[NSURLRequest requestWithURL:url]];
+}
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 // this code can only be used in debug builds:
@@ -146,7 +154,7 @@
 
 	picker.sourceType = source;
     picker.delegate =  delegateObject;
-	picker.allowsEditing = YES;
+	picker.allowsEditing = NO;
 	[controller presentModalViewController:picker animated:YES];
     return YES;
 }
@@ -238,13 +246,20 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
 	if (!_hasBeenLoaded) [self reallyLoadFirstPage];
 	UIApplication.sharedApplication.networkActivityIndicatorVisible = NO;	
-	NSLog(@"turning it OFF");
+	
+	NSString *url = [[[webView request] URL] absoluteString];
 
+	// we've had a fail of internet, or trekaroo site
+	if ([url hasPrefix:TREKAROO_MOBILE_URL] || [[[webView request] URL] isFileURL]) {
+//		NSLog(url);
+		// go to local out to lunch page?
+		[self loadLocalOutToLunchPage];
+	}
+	
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
 	UIApplication.sharedApplication.networkActivityIndicatorVisible = NO;	
-	NSLog(@"turning it OFF");
 
 	if (!_hasBeenLoaded) [self reallyLoadFirstPage];
 
@@ -315,7 +330,7 @@
 		[v release];
 	} else {
 		[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"photoUploadFailed(%d);",[identifier intValue]]];
-		NSLog([error localizedDescription]);
+//		NSLog([error localizedDescription]);
 	}
 }
 
