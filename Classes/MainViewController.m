@@ -295,6 +295,7 @@
 #define REQUEST_FAIL_TAG 55
 #define REQUEST_SUCCEED_TAG 56
 
+
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex;  // after animation 
 {
 	if (alertView.tag == REQUEST_FAIL_TAG) {
