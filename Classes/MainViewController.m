@@ -87,6 +87,8 @@
 	[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"stg2.trekaroo.com"];
 //#endif
 	
+	_hasBeenLoaded = NO; // note that this MUST be reset should the view be freed and re=loaded
+	
 	[super viewDidLoad];
 	[EngineDude engineDude];
 	[webView setDelegate:self];
