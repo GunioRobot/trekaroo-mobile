@@ -189,11 +189,11 @@
 	}
 	else if([cmd compare:@"networkIndicateYes"] == NSOrderedSame){
 		UIApplication* app = [UIApplication sharedApplication];
-//		app.networkActivityIndicatorVisible = YES;
+		app.networkActivityIndicatorVisible = YES;
 	}	
 	else if([cmd compare:@"networkIndicateNo"] == NSOrderedSame){
 		UIApplication* app = [UIApplication sharedApplication];
-//		app.networkActivityIndicatorVisible = NO;
+		app.networkActivityIndicatorVisible = NO;
 	}		
 	else if([cmd compare:@"gotoExternalUrl"] == NSOrderedSame){
 		NSString *urlText = [[paramsToPass objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
@@ -248,8 +248,8 @@
 
 	if (!_hasBeenLoaded) [self reallyLoadFirstPage];
 
-	NSString *jsCommand = @"setIOSMobileApp();";
-	[self.webView stringByEvaluatingJavaScriptFromString:jsCommand];
+//	NSString *jsCommand = @"setIOSMobileApp();";
+//	[self.webView stringByEvaluatingJavaScriptFromString:jsCommand];
 //	[self updateButtons];
 }
 
@@ -281,7 +281,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	// Return YES for supported orientations.
-	return YES;
+	return NO;
 }
 
 

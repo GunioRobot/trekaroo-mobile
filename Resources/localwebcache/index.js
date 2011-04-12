@@ -1,16 +1,3 @@
-var _iosMobileApp = 'unknown';
-
-setIOSMobileApp = function(){
-  Cookie.set('isIOSMobileApp', 'true');
-};
-
-isIOSMobileApp = function() {
-  if( _iosMobileApp == 'unknown' ){
-     _iosMobileApp = Cookie.get('isIOSMobileApp');
-  }
-  return _iosMobileApp;
-};
-
 iosSendCommand = function( cmd, msg ){
     window.location = "iPhoneCommand?cmd="+ cmd + "&msg=" + msg;
 };
