@@ -295,12 +295,12 @@
 	[[picker parentViewController] dismissModalViewControllerAnimated:YES];
 }
 
-
+/*
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	// Return YES for supported orientations.
 	return YES;
 }
-
+*/
 
 - (void)dealloc {
 	webView.delegate = nil;
