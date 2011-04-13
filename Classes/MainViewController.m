@@ -93,6 +93,7 @@
 	[EngineDude engineDude];
 	[webView setDelegate:self];
 	webView.scalesPageToFit = YES;
+	webView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:1.0];
 	
 	[self hideToolbar:YES];
 	[self loadLocalHomePage];
