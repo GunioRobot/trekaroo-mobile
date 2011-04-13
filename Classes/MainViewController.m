@@ -112,7 +112,7 @@
 }
 
 
-- (IBAction)showInfo:(id)sender {    
+- (IBAction)showInfo {    
 	
 	FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
 	controller.delegate = self;
@@ -205,6 +205,9 @@
 		UIApplication* app = [UIApplication sharedApplication];
 		app.networkActivityIndicatorVisible = NO;
 	}		
+	else if([cmd compare:@"showFlipside"] == NSOrderedSame){
+		[self showInfo];
+	}	
 	else if([cmd compare:@"gotoExternalUrl"] == NSOrderedSame){
 		NSString *urlText = [[paramsToPass objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
 			NSLog(@"gotoExternalUrl: %@",urlText);
@@ -265,8 +268,8 @@
 
 	if (!_hasBeenLoaded) [self reallyLoadFirstPage];
 
-//	NSString *jsCommand = @"setIOSMobileApp();";
-//	[self.webView stringByEvaluatingJavaScriptFromString:jsCommand];
+	NSString *jsCommand = @"setIOSMobileApp();";
+	[self.webView stringByEvaluatingJavaScriptFromString:jsCommand];
 //	[self updateButtons];
 }
 

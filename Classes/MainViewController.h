@@ -27,7 +27,7 @@
 @property (nonatomic,retain) IBOutlet UIBarButtonItem *forwardItem;
 @property (nonatomic, retain) UIImagePickerController *imgPicker;
 
-- (IBAction)showInfo:(id)sender;
+- (IBAction)showInfo;
 - (void) sendJSCommandToBrowser: (NSString*)command;
 
 #define STAGING_URL @"http://stg2.trekaroo.com/mobile"
