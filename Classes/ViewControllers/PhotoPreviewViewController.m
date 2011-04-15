@@ -37,7 +37,9 @@
 }
 
 - (void)nowSendPhoto {
-	[[self parentViewController] dismissModalViewControllerAnimated:YES];	
+	// let's not get wiped out TOO EARLY!
+	[[self retain] autorelease];
+	[[self parentViewController] dismissModalViewControllerAnimated:NO];	
 	[(MainViewController *)[self parentViewController] sendJSCommandToBrowser:@"photoUploadStarted();"];		
 	[[EngineDude engineDude] uploadImage:(UIImage *)uiImage withCaption:(NSString *)captionField.text andOptions:photoOptions];
 }
