@@ -21,7 +21,7 @@
 
 - (NSString *)uploadImage:(UIImage *)image withCaption:(NSString *)caption andOptions:(NSDictionary *)options;
 - (NSMutableDictionary *)keysAndValuePairsFromURLString:(NSString *)url;
-
+- (NSString *)getCookieData:(NSURL *)url;
 @end
 
 #warning For Production, simply comment out this next IS_STAGING AND IS_DEV

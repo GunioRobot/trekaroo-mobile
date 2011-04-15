@@ -114,7 +114,7 @@
 }
 
 - (NSString *)uploadImageData:(NSData *)data withCaption:(NSString *)caption andOptions:(NSDictionary *)options {
-	NSString *cookie = [[options valueForKey:@"cookie"] URLDecodedString]; 
+	NSString *cookie = [options valueForKey:@"cookie"]; 
 	NSMutableData *multiPartData = [self multiPartDataWithImageData:data caption:caption andOptions:(NSDictionary *)options];
 	
 	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/photos/create",TREKAROO_MOBILE_URL]];
@@ -180,6 +180,8 @@
     // it can be called multiple times, for example in the case of a redirect, so each time we reset the data.
     [connection resetDataLength];
     
+	[_delegate requestStarted:[connection identifier]];
+	
     // Get response code.
     NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
     int statusCode = [resp statusCode];
@@ -233,6 +235,17 @@
     // Release the connection.
     [_connections removeObjectForKey:[connection identifier]];
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
+- (NSString *)getCookieData:(NSURL *)url {
+	NSString *cookieString = @"";
+	for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]){
+		cookieString = [cookieString stringByAppendingString:(cookie.name)];
+		cookieString = [cookieString stringByAppendingString:@"="];
+		cookieString = [cookieString stringByAppendingString:(cookie.value)];
+		cookieString = [cookieString stringByAppendingString:@";"];
+	}
+	return cookieString;
 }
 
 - (NSMutableDictionary *)keysAndValuePairsFromURLString:(NSString *)url {

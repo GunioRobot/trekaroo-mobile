@@ -166,6 +166,7 @@
 	NSString *url = [[request URL] absoluteString];
 	
 	NSLog(@"JSURL: %@",url);
+	
 //	BOOL shouldHide = [url isEqualToString:TREKAROO_MOBILE_URL] ||
 //	([[request URL] isFileURL] && [[url lastPathComponent] isEqualToString:@TREKAROO_INDEX_FILE]);
 //	[self hideToolbar:shouldHide];
@@ -192,10 +193,12 @@
 	
 	if([cmd compare:@"choosePhoto"] == NSOrderedSame){
 		self.photoPostOptions = [[EngineDude engineDude] keysAndValuePairsFromURLString:url];
+		[self.photoPostOptions setValue:[[EngineDude engineDude] getCookieData:[request URL]] forKey:@"cookie"];
 		[self startCameraPickerFromViewController:self usingDelegate:self source:UIImagePickerControllerSourceTypePhotoLibrary];
 	}
 	else if([cmd compare:@"takePhoto"] == NSOrderedSame){
 		self.photoPostOptions = [[EngineDude engineDude] keysAndValuePairsFromURLString:url];
+		[self.photoPostOptions setValue:[[EngineDude engineDude] getCookieData:[request URL]] forKey:@"cookie"];
 		[self startCameraPickerFromViewController:self usingDelegate:self source:UIImagePickerControllerSourceTypeCamera];
 	}
 	else if([cmd compare:@"networkIndicateYes"] == NSOrderedSame){
@@ -222,7 +225,6 @@
 	/*
 	 *	Only load the page if it is the initial index.html file
 	 */
-	
 	NSRange aSubStringRange = [url rangeOfString:@"iPhoneCommand"];
 	if(aSubStringRange.length != 0){
 		return NO;
@@ -354,6 +356,8 @@
 	// think about this: [webView reload];
 }
 
-
+- (void)uploadRequestStarted:(NSString *)identifier {
+	[webView stringByEvaluatingJavaScriptFromString:@"photoUploadStarted();"];
+}
 
 @end

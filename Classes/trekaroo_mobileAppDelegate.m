@@ -22,7 +22,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
     // Override point for customization after application launch.  
-
+	NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage 
+										  sharedHTTPCookieStorage]; 
+	[ cookieStorage setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways]; 	
+	
     // Add the main view controller's view to the window and display.
     [window addSubview:mainViewController.view];
     [window makeKeyAndVisible];
