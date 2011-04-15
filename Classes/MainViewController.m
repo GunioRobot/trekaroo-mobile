@@ -355,9 +355,4 @@
 		[webView stringByEvaluatingJavaScriptFromString:@"photoUploadSucceeded();"];
 	// think about this: [webView reload];
 }
-
-- (void)uploadRequestStarted:(NSString *)identifier {
-	[webView stringByEvaluatingJavaScriptFromString:@"photoUploadStarted();"];
-}
-
 @end

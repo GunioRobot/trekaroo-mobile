@@ -32,7 +32,6 @@
 
 #define STAGING_URL @"http://stg2.trekaroo.com/mobile"
 
-- (void)uploadrequestStarted:(NSString *)identifier;
 - (void)requestFailed:(NSString *)identifier withError:(NSError *)error;
 - (void)requestSucceeded:(NSString *)identifier;
 	

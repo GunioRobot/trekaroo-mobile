@@ -37,8 +37,9 @@
 }
 
 - (void)nowSendPhoto {
+	[(MainViewController *)[self parentViewController] sendJSCommandToBrowser:@"photoUploadStarted();"];		
 	[[EngineDude engineDude] uploadImage:(UIImage *)uiImage withCaption:(NSString *)captionField.text andOptions:photoOptions];
-	[[self parentViewController] dismissModalViewControllerAnimated:YES];
+	[[self parentViewController] dismissModalViewControllerAnimated:YES];	
 }
 
 - (IBAction)sendPhotoAction:(id)sender {
