@@ -136,7 +136,7 @@
 		NSData *searchData;
 		NSHTTPURLResponse *response;
 		searchData = [ NSURLConnection sendSynchronousRequest:theRequest returningResponse:&response error:&error];
-		NSLog([[response allHeaderFields] description]);
+//		NSLog([[response allHeaderFields] description]);
 		
 		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 

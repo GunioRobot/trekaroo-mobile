@@ -18,5 +18,6 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet MainViewController *mainViewController;
 
+#define MAIN_VIEW_CONTROLLER ([(trekaroo_mobileAppDelegate *)[[UIApplication sharedApplication] delegate] mainViewController])
 @end
 

@@ -251,14 +251,14 @@
 	}
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+- (void)webView:(UIWebView *)wv didFailLoadWithError:(NSError *)error {
 	if (!_hasBeenLoaded) [self reallyLoadFirstPage];
 	UIApplication.sharedApplication.networkActivityIndicatorVisible = NO;	
 	
-	NSString *url = [[[webView request] URL] absoluteString];
+	NSString *url = [[[wv request] URL] absoluteString];
 
 	// we've had a fail of internet, or trekaroo site
-	if ([url hasPrefix:TREKAROO_MOBILE_URL] || [[[webView request] URL] isFileURL]) {
+	if ([url hasPrefix:TREKAROO_MOBILE_URL] || [[[wv request] URL] isFileURL]) {
 //		NSLog(url);
 		// go to local out to lunch page?
 		[self loadLocalOutToLunchPage];

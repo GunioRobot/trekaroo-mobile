@@ -9,6 +9,7 @@
 #import "PhotoPreviewViewController.h"
 #import "EngineDude.h"
 #import "MainViewController.h"
+#import "trekaroo_mobileAppDelegate.h"
 
 @implementation PhotoPreviewViewController
 @synthesize uiImage, uiImageView, captionField, photoOptions;
@@ -32,15 +33,15 @@
 */
 
 - (IBAction)cancelAction:(id)sender {
-	[[self parentViewController] dismissModalViewControllerAnimated:YES];
+	[MAIN_VIEW_CONTROLLER dismissModalViewControllerAnimated:YES];
 	[(MainViewController *)[self parentViewController] sendJSCommandToBrowser:@"photoUploadCancelled();"];	
 }
 
 - (void)nowSendPhoto {
+	[(MainViewController *)[self parentViewController] sendJSCommandToBrowser:@"photoUploadStarted();"];		
 	// let's not get wiped out TOO EARLY!
 	[[self retain] autorelease];
-	[[self parentViewController] dismissModalViewControllerAnimated:NO];	
-	[(MainViewController *)[self parentViewController] sendJSCommandToBrowser:@"photoUploadStarted();"];		
+	[MAIN_VIEW_CONTROLLER dismissModalViewControllerAnimated:NO];	
 	[[EngineDude engineDude] uploadImage:(UIImage *)uiImage withCaption:(NSString *)captionField.text andOptions:photoOptions];
 }
 
