@@ -37,33 +37,37 @@ li.pressed {
 }
 
 li#nearby {
-	height: 117px;
+	height: 125px;
 	background: url(button_nearby.png)  0 0 no-repeat;
 }
 
 li#nearby div.overlay{
   top: 215px;
-  height: 117px;
+  height: 125px;
 }
 
 li#destination {
-	height: 232px;
+	height: 168px;
 	background: url(button_destination.png)  0 0 no-repeat;
 }
 
 li#destination div.overlay{
-  top: 332px;
-  height: 232px;
+  top: 341px;
+  height: 167px;
 }
 
 li#rate {
-	height: 118px;
+	height: 126px;
 	background: url(button_rate.png)  0 0 no-repeat;	
 }
 
 li#rate div.overlay{
-  top: 565px;
-  height: 118px;
+  top: 510px;
+  height: 120px;
+}
+
+ul.horizontal {
+  margin-top: 25px;
 }
 
 ul.horizontal, ul.horizontal li {
@@ -71,40 +75,44 @@ ul.horizontal, ul.horizontal li {
 }
 
 ul.horizontal li {
-	float: left;	
+	float: left;
+  height: 250px;
 }	
 
-li#non-mobile {
+li#history {
 	width: 211px;
-	background: url(button_non-mobile.png)  0 0 no-repeat;	
-}
-
-li#non-mobile.pressed {
-	background: url(button_non-mobile_press.png)  0 0 no-repeat;
+	background: url(button_history.png)  0 0 no-repeat;
 }
 
 li#passport {
 	width: 220px;
-	background: url(button_passport.png)  0 0 no-repeat;	
+	background: url(button_passport.png)  0 0 no-repeat;
 }
 
-li#passport.pressed {
-	background: url(button_passport_press.png)  0 0 no-repeat;
-}
-
-li#feedback {
+li#bookmarks {
 	width: 211px;
-	background: url(button_feedback.png)  0 0 no-repeat;	
+	background: url(button_bookmarks.png)  0 0 no-repeat;	
 }
 
-li#feedback.pressed {
-	background: url(button_feedback_press.png)  0 0 no-repeat;
+li#bookmarks.pressed {
+  background-position: 0 205%, 100% 50% !important
 }
+
+li#info {
+  z-index: 100;
+  width: 212px;;
+  height: 85 !important;
+  top: 824px;
+  left: 430px;
+	position:absolute;
+	background: url(button_info.png)  0 0 no-repeat;
+}
+
 
 div#curve {
 	position:absolute;
 	left:0px;
-	top:682px;
+	top:630px;
 	width: 642px;
 	height: 85px;
 	background: url(curve.png)  0 0 no-repeat;	

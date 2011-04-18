@@ -19,13 +19,9 @@ $().ready( function(){
 		window.location = loc;
 	});
 		  
-	$("li#non-mobile, li#feedback").click( function(e){
-        if(clicked) return;
-        clicked = true;
-		if( isIOSMobileApp() ){
-			e.preventDefault();
-			iosSendCommand("gotoExternalUrl", escape($(this).find('a').attr('href')));
-			return false;
-		}
-	});
+  $("li#info, a.info").click(function(e){
+      e.preventDefault();
+      iosSendCommand("showFlipside");
+      return false;
+  });
 });
