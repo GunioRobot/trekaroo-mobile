@@ -13,6 +13,7 @@
 body {
 	margin: 0;	
 	width: 642px;
+  background-color: #F7A240
 }
 
 ul {
@@ -102,7 +103,7 @@ li#info {
   z-index: 100;
   width: 212px;;
   height: 85 !important;
-  top: 824px;
+  top: 823px;
   left: 430px;
 	position:absolute;
 	background: url(button_info.png)  0 0 no-repeat;
