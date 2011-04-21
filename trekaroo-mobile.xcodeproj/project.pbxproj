@@ -14,6 +14,7 @@
 		201B604D1316B53A006FCD79 /* EngineDude.m in Sources */ = {isa = PBXBuildFile; fileRef = 201B604C1316B53A006FCD79 /* EngineDude.m */; };
 		2039A14912E8940C008DE35E /* PhotoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2039A14712E8940C008DE35E /* PhotoPreviewViewController.m */; };
 		2039A14A12E8940C008DE35E /* PhotoPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2039A14812E8940C008DE35E /* PhotoPreviewViewController.xib */; };
+		20F79584136083C30032D770 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20F79583136083C20032D770 /* MessageUI.framework */; };
 		280E754D0DD40C5E005A515E /* FlipsideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280E754A0DD40C5E005A515E /* FlipsideView.xib */; };
 		280E754E0DD40C5E005A515E /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280E754B0DD40C5E005A515E /* MainView.xib */; };
 		280E754F0DD40C5E005A515E /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280E754C0DD40C5E005A515E /* MainWindow.xib */; };
@@ -51,6 +52,7 @@
 		2039A14612E8940C008DE35E /* PhotoPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoPreviewViewController.h; path = Classes/ViewControllers/PhotoPreviewViewController.h; sourceTree = "<group>"; };
 		2039A14712E8940C008DE35E /* PhotoPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoPreviewViewController.m; path = Classes/ViewControllers/PhotoPreviewViewController.m; sourceTree = "<group>"; };
 		2039A14812E8940C008DE35E /* PhotoPreviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PhotoPreviewViewController.xib; path = Classes/ViewControllers/PhotoPreviewViewController.xib; sourceTree = "<group>"; };
+		20F79583136083C20032D770 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		280E754A0DD40C5E005A515E /* FlipsideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlipsideView.xib; sourceTree = "<group>"; };
 		280E754B0DD40C5E005A515E /* MainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		280E754C0DD40C5E005A515E /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765590DF743DE002DB57D /* CoreGraphics.framework in Frameworks */,
+				20F79584136083C30032D770 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +207,7 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765580DF743DE002DB57D /* CoreGraphics.framework */,
+				20F79583136083C20032D770 /* MessageUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

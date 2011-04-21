@@ -8,17 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
+#import <MessageUI/MessageUI.h>
+
+
 @protocol FlipsideViewControllerDelegate;
 
 
-@interface FlipsideViewController : UIViewController {
+
+@interface FlipsideViewController : UIViewController <MFMailComposeViewControllerDelegate> {
 	id <FlipsideViewControllerDelegate> delegate;
 	UIToolbar *customToolBar;
 }
 
 @property (nonatomic, assign) id <FlipsideViewControllerDelegate> delegate;
 @property (nonatomic, retain) IBOutlet UIToolbar *customToolBar;
+
 - (IBAction)done:(id)sender;
+- (IBAction)sendEmailAction:(id)sender;
+- (IBAction)goToNonMobileTrekarooSite:(id)sender;
+
 @end
 
 

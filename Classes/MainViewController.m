@@ -88,6 +88,7 @@
 //#endif
 	
 	_hasBeenLoaded = NO; // note that this MUST be reset should the view be freed and re=loaded
+	_respondedToError = NO;
 	
 	[super viewDidLoad];
 	[EngineDude engineDude];
@@ -106,12 +107,25 @@
 //	[self insertCoolLogo];
 }
 
+- (void)cameBackFromFlipping:(id)sender {
+	[webView becomeFirstResponder];
+	[webView reload];
+//	[self loadLocalHomePage];
+
+//	NSLog(@"what??");
+}	
+	 
+	 
 
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller {
-    
+    [self performSelector:@selector(cameBackFromFlipping:) withObject:nil afterDelay:0.5];
 	[self dismissModalViewControllerAnimated:YES];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	webView.delegate = self;
+}
 
 - (IBAction)showInfo {    
 	
@@ -166,6 +180,7 @@
 	NSString *url = [[request URL] absoluteString];
 	
 	NSLog(@"JSURL: %@",url);
+	_respondedToError = NO;
 	
 //	BOOL shouldHide = [url isEqualToString:TREKAROO_MOBILE_URL] ||
 //	([[request URL] isFileURL] && [[url lastPathComponent] isEqualToString:@TREKAROO_INDEX_FILE]);
@@ -209,6 +224,9 @@
 		UIApplication* app = [UIApplication sharedApplication];
 		app.networkActivityIndicatorVisible = NO;
 	}		
+	else if([cmd compare:@"gotoLocalHomePage"] == NSOrderedSame){
+		[self loadLocalHomePage];
+	}
 	else if([cmd compare:@"showFlipside"] == NSOrderedSame){
 		[self showInfo];
 	}	
@@ -258,9 +276,9 @@
 	NSString *url = [[[wv request] URL] absoluteString];
 
 	// we've had a fail of internet, or trekaroo site
-	if ([url hasPrefix:TREKAROO_MOBILE_URL] || [[[wv request] URL] isFileURL]) {
-//		NSLog(url);
+	if ((_respondedToError == NO) && [url hasPrefix:TREKAROO_MOBILE_URL] || [[[wv request] URL] isFileURL]) {
 		// go to local out to lunch page?
+		_respondedToError = YES;
 		[self loadLocalOutToLunchPage];
 	}
 	

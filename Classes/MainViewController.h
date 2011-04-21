@@ -18,6 +18,7 @@
 	NSMutableDictionary *photoPostOptions;
 	BOOL _lastImageWasSnapshot;
 	BOOL _hasBeenLoaded;
+	BOOL _respondedToError;
 }
 
 @property (nonatomic,retain) NSMutableDictionary *photoPostOptions;

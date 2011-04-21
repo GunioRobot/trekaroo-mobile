@@ -8,7 +8,6 @@
 
 #import "FlipsideViewController.h"
 
-
 @implementation FlipsideViewController
 
 @synthesize delegate, customToolBar;
@@ -34,9 +33,8 @@
 	
 }
 
-
 - (IBAction)done:(id)sender {
-	[self.delegate flipsideViewControllerDidFinish:self];	
+	[self.delegate flipsideViewControllerDidFinish:self];
 }
 
 
@@ -52,6 +50,42 @@
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 	self.customToolBar = nil;
+}
+
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0);
+{
+	switch (result) {
+		case MFMailComposeResultFailed:	
+		{
+			// maybe alert user
+			
+			break;
+		}
+		case MFMailComposeResultCancelled:	
+			break;
+		case MFMailComposeResultSaved:	
+			break;
+		case MFMailComposeResultSent:	
+		default:
+			break;
+			
+	}
+	[self dismissModalViewControllerAnimated:YES];
+}
+
+
+- (IBAction)sendEmailAction:(id)sender {
+	MFMailComposeViewController *mailGuy = [[[MFMailComposeViewController alloc] init] autorelease];
+	mailGuy.mailComposeDelegate = self;
+	[mailGuy setToRecipients:[NSArray arrayWithObject:@"info@trekaroo.com"]];
+	[mailGuy setSubject:@"Trekaroo iPhone Feedback"];
+//	if (body) [mailGuy setMessageBody:@" isHTML:isHTML];
+	[self presentModalViewController:mailGuy animated:YES];
+}
+
+- (IBAction)goToNonMobileTrekarooSite:(id)sender {
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.trekaroo.com?mobile=false"]];
 }
 
 /*
