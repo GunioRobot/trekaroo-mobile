@@ -72,11 +72,12 @@
 }
 
 - (void)loadLocalOutToLunchPage {
-#define TREKAROO_ERROR_500_FILE @"500_error.html"
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"The Trekaroo server is not available right now. Please try again later." 
+												   delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	[alert show];
+	[alert release];
 	
-	NSString *path = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"localwebcache"] stringByAppendingPathComponent:TREKAROO_ERROR_500_FILE];
-	NSURL *url = [NSURL fileURLWithPath:path];
-	[webView loadRequest:[NSURLRequest requestWithURL:url]];
+	[self loadLocalHomePage];
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
