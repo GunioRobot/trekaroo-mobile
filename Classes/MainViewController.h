@@ -8,17 +8,21 @@
 
 #import "FlipsideViewController.h"
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIWebViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
+@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIWebViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate> {
 	UIWebView *webView;
 	UIImagePickerController *imgPicker;
 	UIToolbar *customToolBar;
 	UIBarButtonItem *backItem;
 	UIBarButtonItem *forwardItem;
 	NSMutableDictionary *photoPostOptions;
+	CLLocationManager *locationManager;
 	BOOL _lastImageWasSnapshot;
 	BOOL _hasBeenLoaded;
 	BOOL _respondedToError;
+	double _latitude;
+	double _longitude;
 }
 
 @property (nonatomic,retain) NSMutableDictionary *photoPostOptions;

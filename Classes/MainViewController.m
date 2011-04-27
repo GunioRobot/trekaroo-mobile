@@ -106,6 +106,10 @@
 //	self.imgPicker.delegate = self;	
 //	[self updateButtons];
 //	[self insertCoolLogo];
+	locationManager = [[CLLocationManager alloc]  init];
+	locationManager.delegate = self;
+	locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
+	locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
 }
 
 - (void)cameBackFromFlipping:(id)sender {
@@ -181,7 +185,6 @@
 	NSString *url = [[request URL] absoluteString];
 	
 	NSLog(@"JSURL: %@",url);
-	_respondedToError = NO;
 	
 //	BOOL shouldHide = [url isEqualToString:TREKAROO_MOBILE_URL] ||
 //	([[request URL] isFileURL] && [[url lastPathComponent] isEqualToString:@TREKAROO_INDEX_FILE]);
@@ -228,6 +231,9 @@
 	else if([cmd compare:@"gotoLocalHomePage"] == NSOrderedSame){
 		[self loadLocalHomePage];
 	}
+	else if([cmd compare:@"getGeolocation"] == NSOrderedSame){
+		[locationManager startUpdatingLocation];
+	}		
 	else if([cmd compare:@"showFlipside"] == NSOrderedSame){
 		[self showInfo];
 	}	
@@ -277,7 +283,7 @@
 	NSString *url = [[[wv request] URL] absoluteString];
 
 	// we've had a fail of internet, or trekaroo site
-	if ((_respondedToError == NO) && [url hasPrefix:TREKAROO_MOBILE_URL] || [[[wv request] URL] isFileURL]) {
+	if ((_respondedToError == NO) && [url hasPrefix:TREKAROO_MOBILE_URL]) {
 		// go to local out to lunch page?
 		_respondedToError = YES;
 		[self loadLocalOutToLunchPage];
@@ -293,6 +299,7 @@
 	NSString *jsCommand = @"setIOSMobileApp();";
 	[self.webView stringByEvaluatingJavaScriptFromString:jsCommand];
 //	[self updateButtons];
+	_respondedToError = NO;
 }
 
 - (void) sendJSCommandToBrowser: (NSString*)command {
@@ -373,5 +380,15 @@
 	} else
 		[webView stringByEvaluatingJavaScriptFromString:@"photoUploadSucceeded();"];
 	// think about this: [webView reload];
+}
+
+-  (void)locationManager:(CLLocationManager *)manager
+	 didUpdateToLocation:(CLLocation *)newLocation
+			fromLocation:(CLLocation *)oldLocation
+{
+	_latitude = newLocation.coordinate.latitude;
+	_longitude = newLocation.coordinate.longitude;
+	
+	[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onSuccessGetGeolocation(%f, %f);",_latitude, _longitude]];
 }
 @end

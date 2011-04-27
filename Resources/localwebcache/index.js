@@ -1,7 +1,3 @@
-iosSendCommand = function( cmd, msg ){
-    window.location = "iPhoneCommand?cmd="+ cmd + "&msg=" + msg;
-};
-
 $().ready( function(){
   var clicked = false;
   $(window).bind("unload", function(){
@@ -13,10 +9,16 @@ $().ready( function(){
   });
 
 	$("div.remote_control ul li").click( function(){
-        if(clicked) return;
-        clicked = true;
-		var loc = $(this).addClass('pressed').find("a").attr('href');
-		window.location = loc;
+    if(clicked) return;
+    clicked = true;
+    var loc = $(this).addClass('pressed').find("a").attr('href');
+    if($(this).hasClass('geolocation')){
+      geolocation_forward_path = loc;
+      getGeolocation();
+    }
+    else{
+      window.location = loc;
+    }
 	});
 		  
   $("li#info, a.info").click(function(e){
